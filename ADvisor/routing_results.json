@@ -1,0 +1,4143 @@
+[
+  {
+    "filename": "i0001.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "serious / premium",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.7649999999999999,
+          "rationale": "Content match on topics: ['gym', 'membership', 'workout', 'fitness']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.76)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.46499999999999997,
+          "rationale": "Content match on topics: ['membership']. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.46)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.13,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: price mismatch. (Score: 0.13)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.13,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: price mismatch. (Score: 0.13)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_college_students"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/CollegeStudents - Students & Young Adults. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | College students and young adults (18-24) living on tight budgets but wanting social experiences. Respond to student discounts, free trials, and low-commitment offers."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_college_students"
+    ],
+    "top_score": 0.7649999999999999
+  },
+  {
+    "filename": "i0002.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "warm inviting",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "friendly / inviting",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.32999999999999996,
+          "rationale": "Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0003.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "serious / premium",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.405,
+          "rationale": "Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0004.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "balanced / professional",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.405,
+          "rationale": "Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0005.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "friendly / inviting",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.75,
+          "rationale": "Content match on topics: ['tasty', 'delicious', 'food', 'eat', 'meal']. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.75)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.75
+  },
+  {
+    "filename": "i0006.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "friendly / inviting",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.7649999999999999,
+          "rationale": "Content match on topics: ['gym', 'membership', 'workout', 'fitness']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.76)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.46499999999999997,
+          "rationale": "Content match on topics: ['membership']. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.46)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.13,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: price mismatch. (Score: 0.13)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.13,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: price mismatch. (Score: 0.13)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_college_students"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/CollegeStudents - Students & Young Adults. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | College students and young adults (18-24) living on tight budgets but wanting social experiences. Respond to student discounts, free trials, and low-commitment offers."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_college_students"
+    ],
+    "top_score": 0.7649999999999999
+  },
+  {
+    "filename": "i0007.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "calm professional",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "balanced / professional",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.32999999999999996,
+          "rationale": "Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0008.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "calm professional",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "balanced / professional",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.32999999999999996,
+          "rationale": "Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0009.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "balanced / professional",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.405,
+          "rationale": "Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0010.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "balanced / professional",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['control']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.42999999999999994,
+          "rationale": "Content match on topics: ['health']. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.43)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.405,
+          "rationale": "Content match on topics: ['health']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.105,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: price mismatch. (Score: 0.10)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.105,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: price mismatch. (Score: 0.10)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_sleep_optimization",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Sleep - Sleep & Recovery Focused, r/Wellness - Holistic Health & Quality. Context: People struggling with sleep quality (25-55), biohackers optimizing recovery, and health-conscious individuals who invest in sleep tech. Want data-driven benefits. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_sleep_optimization",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0011.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "warm inviting",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "friendly / inviting",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.32999999999999996,
+          "rationale": "Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0012.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "balanced / professional",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.75,
+          "rationale": "Content match on topics: ['tasty', 'delicious', 'food', 'eat', 'meal']. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.75)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.75
+  },
+  {
+    "filename": "i0013.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "balanced / professional",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['control']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.42999999999999994,
+          "rationale": "Content match on topics: ['health']. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.43)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.405,
+          "rationale": "Content match on topics: ['health']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.105,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: price mismatch. (Score: 0.10)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.105,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: price mismatch. (Score: 0.10)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_sleep_optimization",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Sleep - Sleep & Recovery Focused, r/Wellness - Holistic Health & Quality. Context: People struggling with sleep quality (25-55), biohackers optimizing recovery, and health-conscious individuals who invest in sleep tech. Want data-driven benefits. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_sleep_optimization",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0014.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "balanced / professional",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.75,
+          "rationale": "Content match on topics: ['tasty', 'delicious', 'food', 'eat', 'meal']. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.75)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.75
+  },
+  {
+    "filename": "i0015.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "balanced / professional",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['control']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.42999999999999994,
+          "rationale": "Content match on topics: ['health']. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.43)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.405,
+          "rationale": "Content match on topics: ['health']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.105,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: price mismatch. (Score: 0.10)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.105,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: price mismatch. (Score: 0.10)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_sleep_optimization",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Sleep - Sleep & Recovery Focused, r/Wellness - Holistic Health & Quality. Context: People struggling with sleep quality (25-55), biohackers optimizing recovery, and health-conscious individuals who invest in sleep tech. Want data-driven benefits. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_sleep_optimization",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0016.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "serious / premium",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.405,
+          "rationale": "Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0017.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "busy colorful design",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "friendly / inviting",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.405,
+          "rationale": "Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "i0018.png",
+    "type": "image",
+    "creative_features": {
+      "visual_style": "warm inviting",
+      "pacing": "static",
+      "cta_text": "Shop Now",
+      "sentiment_tone": "friendly / inviting",
+      "logo_presence_intensity": 0.6,
+      "motion_intensity": 0.0,
+      "audio_voice_profile": "no audio (static image)",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.49,
+          "rationale": "Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.32999999999999996,
+          "rationale": "Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_wellness_quality",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Frugal - Budget-Conscious Shoppers, r/Wellness - Holistic Health & Quality. Context: Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_wellness_quality",
+      "r_frugal"
+    ],
+    "top_score": 0.49
+  },
+  {
+    "filename": "v0001.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.6362879412242479,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.22499999999999998
+  },
+  {
+    "filename": "v0002.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.5147794117647059,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.22499999999999998
+  },
+  {
+    "filename": "v0003.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "minimal calm",
+      "pacing": "slow",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.1589731786908436,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.33999999999999997,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.34)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.32499999999999996,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe. price: perfect price fit. (Score: 0.32)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.265,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.27)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_sleep_optimization",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Sleep - Sleep & Recovery Focused, r/Wellness - Holistic Health & Quality. Context: People struggling with sleep quality (25-55), biohackers optimizing recovery, and health-conscious individuals who invest in sleep tech. Want data-driven benefits. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_sleep_optimization",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.33999999999999997
+  },
+  {
+    "filename": "v0004.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "fast",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.9365191748791529,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Wellness - Holistic Health & Quality. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.25
+  },
+  {
+    "filename": "v0005.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "high energy fast cuts",
+      "pacing": "fast",
+      "cta_text": "Learn More",
+      "sentiment_tone": "urgent / high energy",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 1.0,
+      "audio_voice_profile": "high energy voiceover or music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.32499999999999996,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community; urgent tone matches community responsiveness. price: perfect price fit. (Score: 0.32)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.265,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community; urgent tone matches community responsiveness. price: acceptable price match. (Score: 0.27)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Frugal - Budget-Conscious Shoppers. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_frugal"
+    ],
+    "top_score": 0.32499999999999996
+  },
+  {
+    "filename": "v0006.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "high energy fast cuts",
+      "pacing": "fast",
+      "cta_text": "Learn More",
+      "sentiment_tone": "urgent / high energy",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 1.0,
+      "audio_voice_profile": "high energy voiceover or music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.32499999999999996,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community; urgent tone matches community responsiveness. price: perfect price fit. (Score: 0.32)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.265,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community; urgent tone matches community responsiveness. price: acceptable price match. (Score: 0.27)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_frugal"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Frugal - Budget-Conscious Shoppers. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Extremely price-sensitive consumers (all ages) who hunt for discounts, compare prices obsessively, and only buy when there's a clear value. Flash sales and limited-time offers grab their attention."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_frugal"
+    ],
+    "top_score": 0.32499999999999996
+  },
+  {
+    "filename": "v0007.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "fast",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.8427496191619008,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Wellness - Holistic Health & Quality. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.25
+  },
+  {
+    "filename": "v0008.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "fast",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.8232725372942387,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Wellness - Holistic Health & Quality. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.25
+  },
+  {
+    "filename": "v0009.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.6186626972609219,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.22499999999999998
+  },
+  {
+    "filename": "v0010.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.47466872908245905,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.22499999999999998
+  },
+  {
+    "filename": "v0011.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "fast",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.7692023339854949,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Wellness - Holistic Health & Quality. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.25
+  },
+  {
+    "filename": "v0012.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.5425925106410877,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.22499999999999998
+  },
+  {
+    "filename": "v0013.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "fast",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.7999674535902324,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Wellness - Holistic Health & Quality. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.25
+  },
+  {
+    "filename": "v0014.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "fast",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.9830367189627587,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Wellness - Holistic Health & Quality. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.25
+  },
+  {
+    "filename": "v0015.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.7238595346561301,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Wellness - Holistic Health & Quality. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.25
+  },
+  {
+    "filename": "v0016.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "minimal calm",
+      "pacing": "slow",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.22965442840716532,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.33999999999999997,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.34)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.32499999999999996,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe. price: perfect price fit. (Score: 0.32)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.265,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.27)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_sleep_optimization",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Sleep - Sleep & Recovery Focused, r/Wellness - Holistic Health & Quality. Context: People struggling with sleep quality (25-55), biohackers optimizing recovery, and health-conscious individuals who invest in sleep tech. Want data-driven benefits. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_sleep_optimization",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.33999999999999997
+  },
+  {
+    "filename": "v0017.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.4105669238683127,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.22499999999999998
+  },
+  {
+    "filename": "v0018.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "fast",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.8892583101812036,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_fitness",
+          "score": 0.25,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.19,
+          "rationale": "No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: acceptable price match. (Score: 0.19)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_fitness",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Fitness - Gym Enthusiasts, r/Wellness - Holistic Health & Quality. Context: Dedicated gym-goers, athletes, and fitness enthusiasts (18-45) who track workouts, care about gains, and want to optimize their training. Respond to transformation stories and performance metrics. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_fitness",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.25
+  },
+  {
+    "filename": "v0019.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.48345905103939724,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.22499999999999998
+  },
+  {
+    "filename": "v0020.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.4867084957764783,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.22499999999999998
+  },
+  {
+    "filename": "v0021.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "moderate pacing",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.6865912389743706,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_food",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.22499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.16499999999999998,
+          "rationale": "No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: acceptable price match. (Score: 0.16)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_food",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Food - Food Enthusiasts, r/Wellness - Holistic Health & Quality. Context: People who love food (all ages), enjoy trying new restaurants/menu items, and make impulse food decisions based on cravings. Respond to mouth-watering visuals. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_food",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.22499999999999998
+  },
+  {
+    "filename": "v0022.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "minimal calm",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.2948622032725127,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.33999999999999997,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.34)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.32499999999999996,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe. price: perfect price fit. (Score: 0.32)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.265,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.27)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_sleep_optimization",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Sleep - Sleep & Recovery Focused, r/Wellness - Holistic Health & Quality. Context: People struggling with sleep quality (25-55), biohackers optimizing recovery, and health-conscious individuals who invest in sleep tech. Want data-driven benefits. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_sleep_optimization",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.33999999999999997
+  },
+  {
+    "filename": "v0023.mp4",
+    "type": "video",
+    "creative_features": {
+      "visual_style": "minimal calm",
+      "pacing": "medium",
+      "cta_text": "Learn More",
+      "sentiment_tone": "calm / reassuring",
+      "logo_presence_intensity": 0.5,
+      "motion_intensity": 0.2889977453655073,
+      "audio_voice_profile": "soft voiceover or calm music",
+      "themes": [
+        "product showcase"
+      ],
+      "demographics_explicitly_shown": []
+    },
+    "routing_decision": {
+      "ranked_results": [
+        {
+          "community_id": "r_sleep_optimization",
+          "score": 0.33999999999999997,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.34)",
+          "agent_roles": [
+            "Sleep-Deprived Buyer",
+            "Tech Specs Analyst",
+            "Comfort Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_wellness_quality",
+          "score": 0.32499999999999996,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe. price: perfect price fit. (Score: 0.32)",
+          "agent_roles": [
+            "Health Purist",
+            "Research Skeptic",
+            "Value-Conscious Buyer"
+          ]
+        },
+        {
+          "community_id": "r_design_aesthetics",
+          "score": 0.265,
+          "rationale": "No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.27)",
+          "agent_roles": [
+            "Design Snob",
+            "Aesthetic Purist",
+            "Brand Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_fitness",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Fitness Enthusiast Critic",
+            "Deal-Seeker Gym Member",
+            "Skeptical Newbie"
+          ]
+        },
+        {
+          "community_id": "r_food",
+          "score": 0.15,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.15)",
+          "agent_roles": [
+            "Foodie Critic",
+            "Impulse Eater",
+            "Menu Skeptic"
+          ]
+        },
+        {
+          "community_id": "r_frugal",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Extreme Coupon Hunter",
+            "Price Skeptic",
+            "Deal Calculator"
+          ]
+        },
+        {
+          "community_id": "r_college_students",
+          "score": 0.09,
+          "rationale": "No topical overlap with community interests. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.09)",
+          "agent_roles": [
+            "Broke College Student",
+            "Deal-Seeking Skeptic",
+            "Social FOMO Responder"
+          ]
+        }
+      ],
+      "primary_communities": [
+        "r_sleep_optimization",
+        "r_wellness_quality"
+      ],
+      "notes_for_agents": "Simulate feedback from these audience communities: r/Sleep - Sleep & Recovery Focused, r/Wellness - Holistic Health & Quality. Context: People struggling with sleep quality (25-55), biohackers optimizing recovery, and health-conscious individuals who invest in sleep tech. Want data-driven benefits. | Health-conscious consumers (28-55) who prioritize quality, natural ingredients, and long-term wellness over quick fixes. Skeptical of gimmicks, want science-backed claims."
+    },
+    "top_communities": [
+      "r_sleep_optimization",
+      "r_wellness_quality"
+    ],
+    "top_score": 0.33999999999999997
+  }
+]

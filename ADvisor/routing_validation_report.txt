@@ -1,0 +1,528 @@
+================================================================================
+ADVISOR COMMUNITY RECOMMENDER - VALIDATION REPORT
+================================================================================
+
+Total ads processed: 41
+Successfully routed: 41
+Errors: 0
+
+--------------------------------------------------------------------------------
+COMMUNITY DISTRIBUTION
+--------------------------------------------------------------------------------
+
+How many ads were routed to each community:
+
+  r/Wellness - Holistic Health & Quality        37 █████████████████████████████████████
+  r/Fitness - Gym Enthusiasts                   12 ████████████
+  r/Frugal - Budget-Conscious Shoppers          12 ████████████
+  r/Food - Food Enthusiasts                     12 ████████████
+  r/Sleep - Sleep & Recovery Focused             7 ███████
+  r/CollegeStudents - Students & Young Adults    2 ██
+
+--------------------------------------------------------------------------------
+INDIVIDUAL AD ROUTING DETAILS
+--------------------------------------------------------------------------------
+
+📄 i0001.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: serious / premium
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.765)
+         Content match on topics: ['gym', 'membership', 'workout', 'fitness']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.76)
+      2. r/CollegeStudents - Students & Young Adults (score: 0.465)
+         Content match on topics: ['membership']. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.46)
+
+📄 i0002.png (image)
+   Visual Style: warm inviting
+   Pacing: static
+   Sentiment: friendly / inviting
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.330)
+         Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)
+
+📄 i0003.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: serious / premium
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.405)
+         Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)
+
+📄 i0004.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: balanced / professional
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.405)
+         Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)
+
+📄 i0005.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: friendly / inviting
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.750)
+         Content match on topics: ['tasty', 'delicious', 'food', 'eat', 'meal']. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.75)
+      2. r/Wellness - Holistic Health & Quality (score: 0.250)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.25)
+
+📄 i0006.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: friendly / inviting
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.765)
+         Content match on topics: ['gym', 'membership', 'workout', 'fitness']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.76)
+      2. r/CollegeStudents - Students & Young Adults (score: 0.465)
+         Content match on topics: ['membership']. creative vibe: bold visual style matches community taste. price: perfect price fit. (Score: 0.46)
+
+📄 i0007.png (image)
+   Visual Style: calm professional
+   Pacing: static
+   Sentiment: balanced / professional
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.330)
+         Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)
+
+📄 i0008.png (image)
+   Visual Style: calm professional
+   Pacing: static
+   Sentiment: balanced / professional
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.330)
+         Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)
+
+📄 i0009.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: balanced / professional
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.405)
+         Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)
+
+📄 i0010.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: balanced / professional
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Sleep - Sleep & Recovery Focused (score: 0.490)
+         Content match on topics: ['control']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Wellness - Holistic Health & Quality (score: 0.430)
+         Content match on topics: ['health']. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.43)
+
+📄 i0011.png (image)
+   Visual Style: warm inviting
+   Pacing: static
+   Sentiment: friendly / inviting
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.330)
+         Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)
+
+📄 i0012.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: balanced / professional
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.750)
+         Content match on topics: ['tasty', 'delicious', 'food', 'eat', 'meal']. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.75)
+      2. r/Wellness - Holistic Health & Quality (score: 0.250)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.25)
+
+📄 i0013.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: balanced / professional
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Sleep - Sleep & Recovery Focused (score: 0.490)
+         Content match on topics: ['control']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Wellness - Holistic Health & Quality (score: 0.430)
+         Content match on topics: ['health']. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.43)
+
+📄 i0014.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: balanced / professional
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.750)
+         Content match on topics: ['tasty', 'delicious', 'food', 'eat', 'meal']. creative energy/style does not strongly align. price: perfect price fit. (Score: 0.75)
+      2. r/Wellness - Holistic Health & Quality (score: 0.250)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.25)
+
+📄 i0015.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: balanced / professional
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Sleep - Sleep & Recovery Focused (score: 0.490)
+         Content match on topics: ['control']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Wellness - Holistic Health & Quality (score: 0.430)
+         Content match on topics: ['health']. creative vibe: calm/slow pacing matches low-energy community. price: acceptable price match. (Score: 0.43)
+
+📄 i0016.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: serious / premium
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.405)
+         Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)
+
+📄 i0017.png (image)
+   Visual Style: busy colorful design
+   Pacing: static
+   Sentiment: friendly / inviting
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.405)
+         Content match on topics: ['value']. creative vibe: bold visual style matches community taste. price: acceptable price match. (Score: 0.41)
+
+📄 i0018.png (image)
+   Visual Style: warm inviting
+   Pacing: static
+   Sentiment: friendly / inviting
+   Motion Intensity: 0.00
+
+   🎯 Top Communities Selected:
+      1. r/Wellness - Holistic Health & Quality (score: 0.490)
+         Content match on topics: ['quality']. creative vibe: calm/slow pacing matches low-energy community. price: perfect price fit. (Score: 0.49)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.330)
+         Content match on topics: ['value']. creative energy/style does not strongly align. price: acceptable price match. (Score: 0.33)
+
+📄 v0001.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.64
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.225)
+         No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0002.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.51
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.225)
+         No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0003.mp4 (video)
+   Visual Style: minimal calm
+   Pacing: slow
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.16
+
+   🎯 Top Communities Selected:
+      1. r/Sleep - Sleep & Recovery Focused (score: 0.340)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.34)
+      2. r/Wellness - Holistic Health & Quality (score: 0.325)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe. price: perfect price fit. (Score: 0.32)
+
+📄 v0004.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: fast
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.94
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.250)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0005.mp4 (video)
+   Visual Style: high energy fast cuts
+   Pacing: fast
+   Sentiment: urgent / high energy
+   Motion Intensity: 1.00
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.325)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community; urgent tone matches community responsiveness. price: perfect price fit. (Score: 0.32)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.265)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community; urgent tone matches community responsiveness. price: acceptable price match. (Score: 0.27)
+
+📄 v0006.mp4 (video)
+   Visual Style: high energy fast cuts
+   Pacing: fast
+   Sentiment: urgent / high energy
+   Motion Intensity: 1.00
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.325)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community; urgent tone matches community responsiveness. price: perfect price fit. (Score: 0.32)
+      2. r/Frugal - Budget-Conscious Shoppers (score: 0.265)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community; urgent tone matches community responsiveness. price: acceptable price match. (Score: 0.27)
+
+📄 v0007.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: fast
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.84
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.250)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0008.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: fast
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.82
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.250)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0009.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.62
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.225)
+         No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0010.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.47
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.225)
+         No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0011.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: fast
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.77
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.250)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0012.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.54
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.225)
+         No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0013.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: fast
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.80
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.250)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0014.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: fast
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.98
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.250)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0015.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.72
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.250)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0016.mp4 (video)
+   Visual Style: minimal calm
+   Pacing: slow
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.23
+
+   🎯 Top Communities Selected:
+      1. r/Sleep - Sleep & Recovery Focused (score: 0.340)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.34)
+      2. r/Wellness - Holistic Health & Quality (score: 0.325)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe. price: perfect price fit. (Score: 0.32)
+
+📄 v0017.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.41
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.225)
+         No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0018.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: fast
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.89
+
+   🎯 Top Communities Selected:
+      1. r/Fitness - Gym Enthusiasts (score: 0.250)
+         No topical overlap with community interests. creative vibe: high motion matches high-energy community. price: perfect price fit. (Score: 0.25)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0019.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.48
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.225)
+         No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0020.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.49
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.225)
+         No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0021.mp4 (video)
+   Visual Style: moderate pacing
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.69
+
+   🎯 Top Communities Selected:
+      1. r/Food - Food Enthusiasts (score: 0.225)
+         No topical overlap with community interests. creative vibe: moderate motion fits community. price: perfect price fit. (Score: 0.22)
+      2. r/Wellness - Holistic Health & Quality (score: 0.225)
+         No topical overlap with community interests. creative vibe: calm tone matches community vibe. price: perfect price fit. (Score: 0.22)
+
+📄 v0022.mp4 (video)
+   Visual Style: minimal calm
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.29
+
+   🎯 Top Communities Selected:
+      1. r/Sleep - Sleep & Recovery Focused (score: 0.340)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.34)
+      2. r/Wellness - Holistic Health & Quality (score: 0.325)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe. price: perfect price fit. (Score: 0.32)
+
+📄 v0023.mp4 (video)
+   Visual Style: minimal calm
+   Pacing: medium
+   Sentiment: calm / reassuring
+   Motion Intensity: 0.29
+
+   🎯 Top Communities Selected:
+      1. r/Sleep - Sleep & Recovery Focused (score: 0.340)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe; minimal design matches aesthetic preferences. price: acceptable price match. (Score: 0.34)
+      2. r/Wellness - Holistic Health & Quality (score: 0.325)
+         No topical overlap with community interests. creative vibe: calm/slow pacing matches low-energy community; calm tone matches community vibe. price: perfect price fit. (Score: 0.32)
+
+--------------------------------------------------------------------------------
+SUMMARY STATISTICS
+--------------------------------------------------------------------------------
+
+Average top community match score: 0.395
+Images processed: 18
+Videos processed: 23
+
+================================================================================
+END OF REPORT
+================================================================================
