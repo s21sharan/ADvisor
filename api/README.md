@@ -95,4 +95,11 @@ brew install tesseract   # macOS
 
 `pytesseract` is included in requirements. If Tesseract is not installed or OCR is disabled, the API returns placeholders for `ocr`.
 
+For videos, OCR is aggregated across sampled frames. Control sampling with:
+
+```bash
+# target OCR sampling fps for videos (default 10)
+export VIDEO_OCR_FPS=10
+```
+
 
