@@ -1,10 +1,12 @@
 import logging
+import os
 from typing import Dict, List, Tuple
 
 import cv2
 import numpy as np
 
 from extractor.pipeline.image_features import extract_from_image
+from extractor.pipeline.ocr import compute_ocr_stats
 
 
 logger = logging.getLogger(__name__)
@@ -80,6 +82,53 @@ def extract_from_video(path: str) -> Tuple[Dict, Dict]:
 
     # Reuse image feature extraction on a representative frame
     _, image_features = extract_from_image(representative_bgr)
+    # Aggregate OCR across sampled frames if enabled
+    try:
+        if os.getenv("ENABLE_OCR", "false").lower() in {"1", "true", "yes"}:
+            # target FPS for OCR across video
+            target_fps = float(os.getenv("VIDEO_OCR_FPS", "10"))
+            # derive indices for OCR sampling
+            if fps and fps > 0:
+                duration_s = total_frames / fps
+                desired = max(1, int(round(duration_s * max(0.1, target_fps))))
+                desired = min(desired, 60)
+                if desired <= 1:
+                    ocr_indices = [0]
+                else:
+                    ocr_indices = [int(round(i * (total_frames - 1) / (desired - 1))) for i in range(desired)]
+            else:
+                # fallback to even sampling if fps unknown
+                samples = min(total_frames, 40)
+                ocr_indices = [int(round(i * (total_frames - 1) / (samples - 1))) for i in range(samples)] if samples > 1 else [0]
+
+            texts: List[str] = []
+            coverages: List[float] = []
+            cap2 = cv2.VideoCapture(path)
+            for idx in ocr_indices:
+                cap2.set(cv2.CAP_PROP_POS_FRAMES, idx)
+                ok, frame = cap2.read()
+                if not ok:
+                    continue
+                stats = compute_ocr_stats(frame)
+                text = str(stats.get("text", ""))
+                if text:
+                    texts.append(text)
+                coverages.append(float(stats.get("coverage_pct", 0.0)))
+            cap2.release()
+
+            # Combine texts by unique word order-preserving
+            seen = set()
+            combined_words: List[str] = []
+            for t in texts:
+                for w in t.split():
+                    if w not in seen:
+                        seen.add(w)
+                        combined_words.append(w)
+            combined_text = " ".join(combined_words)
+            avg_coverage = float(np.round(np.mean(coverages), 4)) if coverages else 0.0
+            image_features["ocr"] = {"coverage_pct": avg_coverage, "text": combined_text}
+    except Exception as exc:  # pragma: no cover
+        logger.debug("Video OCR aggregation failed: %s", exc)
     image_features["video"] = {
         "sampled_frames": int(sampled),
         "motion_intensity": float(motion),
