@@ -3,11 +3,14 @@ backend/
 extractor/
 api/
 
-# Data files
-*.json
+# Data files (but keep package.json, tsconfig.json, etc.)
+backend/**/*.json
+backend/**/*.csv
+data/
 *.csv
 
 # Environment (will be set in Vercel dashboard)
+.env
 .env.local
 
 # Python files
