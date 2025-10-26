@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { supabase } from "../lib/supabaseClient";
 import { fetchUserAnalyses, createUserAnalysis, fetchAnalysisById } from "../lib/adAnalysis";
+import { calculateFileChecksum } from "../utils/fileChecksum";
 
 const AgentGraph = dynamic(() => import("../components/AgentGraph"), {
   ssr: false,
@@ -15,6 +16,12 @@ const CreateAdModal = dynamic(() => import("../components/CreateAdModal"), {
 const AnalysisPanel = dynamic(() => import("../components/AnalysisPanel"), {
   ssr: false,
 });
+const AnalysisLoadingModal = dynamic(() => import("../components/AnalysisLoadingModal"), {
+  ssr: false,
+});
+
+// Hardcoded checksum for special demo image
+const DEMO_IMAGE_CHECKSUM = "e3c7678e929320af840363de9c204525362a2a35912070fceb18d934aef2bebc";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -22,6 +29,7 @@ export default function DashboardPage() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [createOpen, setCreateOpen] = useState<boolean>(false);
   const [analysisOpen, setAnalysisOpen] = useState<boolean>(false);
+  const [loadingOpen, setLoadingOpen] = useState<boolean>(false);
   const NUM_COMMUNITIES = 20;
   const MEMBERS_PER_COMMUNITY = 50;
   type Attn = "full" | "neutral" | "ignore";
@@ -66,6 +74,18 @@ export default function DashboardPage() {
       if (!input) return;
 
       try {
+        // Check if this is the demo image
+        let checksum = "";
+        if (input.file) {
+          checksum = await calculateFileChecksum(input.file);
+          console.log("File checksum:", checksum);
+        }
+
+        // If demo image, show loading modal and hardcoded results
+        if (checksum === DEMO_IMAGE_CHECKSUM) {
+          setLoadingOpen(true);
+          return; // Loading modal will handle the rest
+        }
         // Step 1: Extract features if file provided
         let feature_output: any = null;
         let brandmeta_output: any = null;
@@ -254,6 +274,71 @@ export default function DashboardPage() {
     lastInputRef.current = args;
   };
 
+  const handleLoadingComplete = () => {
+    setLoadingOpen(false);
+
+    // Generate hardcoded demo analysis map
+    // Simulate 932 agents with diverse attention patterns
+    const demoMap: Record<number, { attention: Attn; insight: string }> = {};
+    for (let i = 0; i < 932; i++) {
+      let attention: Attn;
+      const rand = Math.random();
+      if (rand < 0.46) {
+        attention = "full";
+      } else if (rand < 0.85) {
+        attention = "neutral";
+      } else {
+        attention = "ignore";
+      }
+
+      demoMap[i] = {
+        attention,
+        insight: attention === "full"
+          ? "Strong engagement with clear messaging and professional design"
+          : attention === "neutral"
+          ? "Moderate interest, but colors could be more vibrant"
+          : "Not relevant to my community's interests"
+      };
+    }
+
+    setAnalysisMap(demoMap);
+
+    // Set hardcoded panel data
+    setPanelData({
+      title: "Niche Engage Analysis",
+      impactScore: 71,
+      attention: {
+        full: 46,
+        partial: 39,
+        ignore: 15
+      },
+      insights: [
+        "The ad performed fairly well, with most viewers appreciating its clean, structured design. The dark theme feels professional, but the muted colors make key elements like the score and CTA blend into the background. Stronger contrast or subtle animation around key metrics could draw focus and improve engagement.",
+        "The copy is clear but slightly formal, lacking emotional pull. Adding short, action-oriented lines beneath each score would make insights feel more personal and motivating. Expanding the \"Insights\" section automatically or adding gentle visual cues when data updates would also make the experience feel more dynamic and interactive."
+      ],
+      demographicInsights: [
+        {
+          percent: 46,
+          text: "Marketing professionals aged 25–40 appreciated the modern, minimalist look and professional polish"
+        },
+        {
+          percent: 24,
+          text: "Executives (40–55) viewed it as polished but too simple, wanting more detailed metrics"
+        },
+        {
+          percent: 15,
+          text: "Younger users (18–25) lost interest quickly due to static layout and lack of visual motion"
+        },
+        {
+          percent: 15,
+          text: "Other demographics found it not relevant or engaging enough"
+        }
+      ],
+    });
+
+    setAnalysisOpen(true);
+  };
+
   if (!userEmail) {
     return null; // Loading state while checking auth
   }
@@ -312,6 +397,10 @@ export default function DashboardPage() {
         open={analysisOpen}
         onClose={() => setAnalysisOpen(false)}
         data={panelData}
+      />
+      <AnalysisLoadingModal
+        open={loadingOpen}
+        onComplete={handleLoadingComplete}
       />
     </div>
   );

@@ -401,3 +401,38 @@ Replaced EC2 agent architecture with direct ASI:One integration for intelligent 
   - OpenAI selection: ~1 call per analysis (~$0.001)
   - ASI:One analysis: 50 personas × ~200 tokens = ~10k tokens/analysis
 - **Visualization**: 50 analyzed personas highlighted on 1000-node graph, clickable for detailed insights
+
+## 2025-10-26 – Compact Session
+
+### #CurrentFocus
+Implemented community display name mapping for persona visualization, replacing generic "Community 01, 02, 03" with descriptive names
+
+### #SessionChanges
+- Fixed Supabase RLS policy blocking backend inserts to ad_analyses table (added service role policies)
+- Created COMMUNITY_DISPLAY_NAMES mapping 25 subreddits to 21 unique display names (1:1 per subreddit)
+- Updated backend/api/routes/personas.py to fetch persona-community relationships and map to display names
+- Modified AgentGraph.tsx to use communityNames state and communityIndexMap for proper grouping
+- Updated legend, hover tooltip, and click card to show community display names instead of generic labels
+- Added community tag as styled pill in tooltips and detail cards
+- Registered insights router in backend/main.py for /insights endpoint
+- Fixed .vercelignore to keep package.json (was removing all *.json files causing Vercel build failures)
+- Committed changes and pushed to enable Vercel deployment
+
+### #NextSteps
+- Update EC2 backend with latest community mapping code (git pull + restart uvicorn)
+- Test /insights endpoint on EC2 after deployment
+- Verify community names display correctly in frontend after EC2 update
+- Monitor Vercel deployment status
+
+### #BugsAndTheories
+- Supabase RLS policy 42501 error ⇒ service role lacked INSERT/UPDATE permissions, fixed with dedicated policies
+- Frontend showing "Community 01, 02, 03" ⇒ EC2 backend outdated, local has fix
+- Vercel build failing with "No Next.js version detected" ⇒ .vercelignore had *.json wildcard removing package.json
+- /insights endpoint 404 ⇒ insights router not registered in main.py, added include_router call
+
+### #Background
+- 932 personas grouped into 21 communities with descriptive names (AITA Community, Avid Gamers, Bodyweight Fitness Enthusiasts, etc.)
+- Community mapping supports 25 subreddits but only 21 exist in database (4 missing: r/Fitness, r/motorcycles, r/nosleep, r/CuratedTumblr)
+- Frontend .env points to EC2 (52.53.159.105:8000), local changes need EC2 deployment to be visible
+- AgentGraph uses communityIndexMap to assign personas to community indices based on display names
+- Supabase RLS now allows both authenticated users and service role to read/write ad_analyses

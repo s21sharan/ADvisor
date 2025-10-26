@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     const filename = (file as any).name || "upload.bin";
     outbound.append("file", file, filename);
 
-    const resp = await fetch("http://52.53.159.105:8000/extract", {
+    const resp = await fetch("http://localhost:8000/extract", {
       method: "POST",
       body: outbound as any,
     }).catch((e) => ({ ok: false, status: 502, text: async () => String(e) } as any));
