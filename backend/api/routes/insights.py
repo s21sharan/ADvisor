@@ -25,8 +25,8 @@ def insights(
     temperature: Optional[float] = Query(None, description="LLM temperature (default 0.2)"),
     debug: Optional[bool] = Query(False, description="Include per_insight_scores and raw prompts in notes when true"),
     fast: Optional[bool] = Query(True, description="Enable dedupe fast-path to reduce latency"),
-    timeout_s: Optional[float] = Query(20.0, description="Request timeout to provider in seconds"),
-    max_tokens: Optional[int] = Query(600, description="Max tokens for provider response"),
+    timeout_s: Optional[float] = Query(30.0, description="Request timeout to provider in seconds"),
+    max_tokens: Optional[int] = Query(1500, description="Max tokens for provider response"),
 ):
     try:
         used_provider = (provider or "openai").lower()
@@ -101,8 +101,8 @@ def insights_selected(
     temperature: Optional[float] = Query(None, description="LLM temperature (default 0.2)"),
     debug: Optional[bool] = Query(False, description="Include per_insight_scores and raw prompts in notes when true"),
     fast: Optional[bool] = Query(True, description="Enable dedupe fast-path to reduce latency"),
-    timeout_s: Optional[float] = Query(20.0, description="Request timeout to provider in seconds"),
-    max_tokens: Optional[int] = Query(600, description="Max tokens for provider response"),
+    timeout_s: Optional[float] = Query(30.0, description="Request timeout to provider in seconds"),
+    max_tokens: Optional[int] = Query(1500, description="Max tokens for provider response"),
 ):
     try:
         normalized = _convert_selected_payload(payload)
@@ -146,8 +146,8 @@ def insights_from_supabase(
     temperature: Optional[float] = Query(None, description="LLM temperature (default 0.2)"),
     debug: Optional[bool] = Query(False, description="Include per_insight_scores and raw prompts in notes when true"),
     fast: Optional[bool] = Query(True, description="Enable dedupe fast-path to reduce latency"),
-    timeout_s: Optional[float] = Query(20.0, description="Request timeout to provider in seconds"),
-    max_tokens: Optional[int] = Query(600, description="Max tokens for provider response"),
+    timeout_s: Optional[float] = Query(30.0, description="Request timeout to provider in seconds"),
+    max_tokens: Optional[int] = Query(1500, description="Max tokens for provider response"),
 ):
     try:
         row = _fetch_supabase_row(analysis_id)

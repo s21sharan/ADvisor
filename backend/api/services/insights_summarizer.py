@@ -7,11 +7,22 @@ from api.services.llm_adapter import complete_structured_generic
 
 
 SYSTEM_PROMPT = (
-    "You are an advertising research analyst. Assign a 0-100 impact score to each input insight, "
-    "where 100 means very strong, high-signal impact on ad performance, 0 means negligible. "
-    "Use attention buckets as priors (full=high, partial=medium, ignore=low) but refine using the sentence. "
-    "Then produce 3-6 succinct, line-separated overall insights on how to improve the ad. "
-    "Finally, generate demographic pros and cons with a reasonable estimated percent and a demographic label."
+    "You are an expert advertising analyst specializing in creative optimization. "
+    "Your task is to deeply analyze ad performance based on persona feedback. "
+    "\n\n"
+    "First, assign a 0-100 impact score to each persona insight (100=very strong positive signal, 0=negligible). "
+    "Use attention buckets as priors (full=high score, partial=medium, ignore=low) but refine based on sentiment. "
+    "\n\n"
+    "Then provide 5-8 DETAILED, ACTIONABLE insights covering: "
+    "1. VISUAL FEATURES: What visual elements work well? What needs improvement? (colors, layout, imagery, CTA visibility) "
+    "2. MESSAGING: Is the copy clear, compelling, relevant? What changes would improve resonance? "
+    "3. AUDIENCE FIT: Which demographics engage vs. disengage? Why? "
+    "4. SPECIFIC CRITIQUES: Summarize recurring negative feedback and suggest concrete fixes "
+    "5. STRENGTHS TO AMPLIFY: What features are working well that should be emphasized? "
+    "6. MISSING ELEMENTS: What key features are lacking or underutilized? "
+    "\n\n"
+    "Be specific about which ad features to change, improve, or add. Reference actual persona critiques. "
+    "Finally, generate demographic pros and cons with estimated percentages."
 )
 
 
@@ -64,8 +75,8 @@ def _json_schema_for_output() -> Dict:
             "overall_insights": {
                 "type": "array",
                 "items": {"type": "string"},
-                "minItems": 3,
-                "maxItems": 8,
+                "minItems": 5,
+                "maxItems": 12,
             },
             "demographics": {
                 "type": "object",
@@ -140,9 +151,14 @@ def summarize_insights(
     schema_hint = {
         "per_insight_scores": hint_scores or [50.0 for _ in range(base_count)],
         "overall_insights": [
-            "Clarify the core value proposition in the opening seconds.",
-            "Use a stronger visual CTA and consistent brand cues.",
-            "Tighten pacing; reduce filler shots to maintain attention.",
+            "VISUAL STRENGTHS: The color palette is eye-catching and aligns well with brand identity. The high-contrast CTA button effectively draws attention.",
+            "VISUAL WEAKNESSES: Layout feels cluttered with too many elements competing for focus. Consider simplifying to 2-3 key visual hierarchy levels.",
+            "MESSAGING STRENGTHS: The headline is clear and benefit-driven, immediately communicating value to the target audience.",
+            "MESSAGING WEAKNESSES: Copy is too generic and doesn't address specific pain points mentioned by personas. Add more concrete examples and social proof.",
+            "AUDIENCE FIT: Strong resonance with 18-24 fitness enthusiasts due to authentic imagery, but lacks appeal to 35+ professionals who want efficiency-focused messaging.",
+            "CRITICAL FIXES NEEDED: 47% of personas mentioned the CTA is confusing. Change 'Learn More' to specific action like 'Start Free Trial' or 'Get 20% Off'.",
+            "AMPLIFY THESE STRENGTHS: The product demonstration in the hero image is highly effective - personas cited this as most engaging element. Feature it more prominently.",
+            "MISSING ELEMENTS: No testimonials or social proof visible. Add 2-3 short customer quotes or star ratings to build trust, especially for skeptical demographics.",
         ],
         "demographics": {
             "pros": [{"statement": "Clear benefits resonate with budget-conscious viewers", "percent": 38.0, "demographic": "25-34, US"}],
