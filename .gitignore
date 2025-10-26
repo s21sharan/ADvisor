@@ -62,3 +62,6 @@ backend/*.csv
 backend/author_profile_urls.csv
 backend/author_url.csv
 backend/from_url_input.csv
+
+# Elastic Agent (system monitoring - not needed for this project)
+backend/elastic-agent-*/

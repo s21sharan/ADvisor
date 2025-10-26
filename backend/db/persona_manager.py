@@ -440,3 +440,111 @@ class PersonaManager:
             List of inserted records
         """
         return self.vector.batch_store_content_embeddings(embeddings_data)
+
+    # ========================================================================
+    # SIMPLE RETRIEVAL METHODS (for persona agents)
+    # ========================================================================
+
+    def list_personas(self, limit: int = 1000) -> List[Dict]:
+        """
+        List all personas
+
+        Args:
+            limit: Maximum number of personas to return (default 1000)
+
+        Returns:
+            List of persona dictionaries
+        """
+        result = self.kg.client.table("personas").select("*").limit(limit).execute()
+        return result.data if result.data else []
+
+    def get_persona(self, persona_id: str) -> Optional[Dict]:
+        """
+        Get a single persona by ID
+
+        Args:
+            persona_id: ID of the persona
+
+        Returns:
+            Persona dictionary or None
+        """
+        result = self.kg.client.table("personas").select("*").eq("id", persona_id).execute()
+        return result.data[0] if result.data else None
+
+    def search_personas_by_embedding(self, embedding: List[float], limit: int = 10) -> List[Dict]:
+        """
+        Search personas using vector similarity
+
+        Args:
+            embedding: Query embedding vector
+            limit: Number of results to return
+
+        Returns:
+            List of similar personas with similarity scores
+        """
+        matches = self.vector.match_personas(embedding, match_threshold=0.5, match_count=limit)
+
+        personas = []
+        for match in matches:
+            persona = self.get_persona(match.get("persona_id"))
+            if persona:
+                persona["similarity_score"] = match.get("similarity")
+                personas.append(persona)
+
+        return personas
+
+    def search_communities_by_embedding(self, embedding: List[float], limit: int = 10) -> List[Dict]:
+        """
+        Search communities using vector similarity
+
+        Args:
+            embedding: Query embedding vector
+            limit: Number of results to return
+
+        Returns:
+            List of similar communities with similarity scores
+        """
+        try:
+            matches = self.vector.match_communities(embedding, match_threshold=0.5, match_count=limit)
+
+            communities = []
+            for match in matches:
+                result = self.kg.client.table("communities").select("*").eq("community_id", match.get("community_id")).execute()
+                if result.data:
+                    community = result.data[0]
+                    community["similarity_score"] = match.get("similarity")
+                    communities.append(community)
+
+            return communities
+        except Exception as e:
+            # If there's a database error, return empty list so agent can still function
+            print(f"Warning: community search failed: {e}")
+            return []
+
+    def search_content_by_embedding(self, embedding: List[float], limit: int = 10) -> List[Dict]:
+        """
+        Search content using vector similarity
+
+        Args:
+            embedding: Query embedding vector
+            limit: Number of results to return
+
+        Returns:
+            List of similar content items with similarity scores
+        """
+        try:
+            matches = self.vector.match_content(embedding, match_threshold=0.5, match_count=limit)
+
+            content_items = []
+            for match in matches:
+                result = self.kg.client.table("content").select("*").eq("content_id", match.get("content_id")).execute()
+                if result.data:
+                    content = result.data[0]
+                    content["similarity_score"] = match.get("similarity")
+                    content_items.append(content)
+
+            return content_items
+        except Exception as e:
+            # If there's a database error, return empty list so agent can still function
+            print(f"Warning: content search failed: {e}")
+            return []

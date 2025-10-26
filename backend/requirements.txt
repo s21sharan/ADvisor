@@ -5,4 +5,3 @@ python-dotenv==1.0.0
 dateparser==1.2.0
 httpx>=0.28.1
 supabase==2.22.2
-elasticsearch==9.1.1

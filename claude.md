@@ -258,3 +258,33 @@ Migrated existing Supabase data (personas, communities, content, interests) to E
 - Data parsing strategy: ast.literal_eval for Python literals, json.loads for JSON strings
 - Current Elasticsearch state: 94 personas, 20 communities, 97 content, 100 interests all searchable
 - Both stores now contain same data: Supabase (source of truth), Elasticsearch (search/analytics layer)
+
+## 2025-10-26 – Compact Session
+
+### #CurrentFocus
+Integrated Fetch.ai ASI:One API to power all 932 persona agents with asi1-mini model for authentic persona embodiment
+
+### #SessionChanges
+- Created backend/utils/fetchai_client.py wrapper with OpenAI-compatible chat completions interface for asi1-mini model
+- Updated backend/agents/persona_agent.py to use Fetch.ai for agent reasoning (system prompts for persona embodiment)
+- Replaced OpenAI LLM calls with Fetch.ai ASI:One while keeping OpenAI for embedding generation only
+- Added error handling to db/persona_manager.py for graceful database query failures in vector search
+- Tested connection to Fetch.ai API successfully (https://api.asi1.ai/v1/chat/completions)
+- Verified all 6 API endpoints working: list personas, chat, analyze-ad, analyze-ad-multi, get context, find similar
+- Tested with multiple personas generating authentic, persona-specific responses to ads and queries
+
+### #NextSteps
+- Begin implementing Feature Extraction Engine (Component 2)
+- Set up Feature Store for embeddings (Component 3)
+- Connect persona agents to creative feedback and variant generation pipeline
+
+### #BugsAndTheories
+- Supabase RPC match_content/match_communities type mismatch ⇒ varchar(255) vs text in column 2, added try/catch to prevent failures
+- Chat endpoint initially failed with 500 error ⇒ database query type mismatch, fixed with error handling fallbacks
+
+### #Background
+- Architecture: Fetch.ai ASI:One (asi1-mini) for agent reasoning, OpenAI for embeddings, Supabase for data + pgvector retrieval
+- All 932 personas now use Fetch.ai with system prompts containing full persona context (demographics, psychographics, pain points, motivations)
+- Agents access embedded messages/content via vector similarity search in Supabase
+- Removed all Elasticsearch dependencies per user request (reverted to Supabase-only for vector search)
+- API running at http://localhost:8000 with full persona agent functionality
