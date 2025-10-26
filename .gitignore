@@ -1,9 +1,15 @@
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-data/
-
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
 
 .python-version
 
@@ -46,3 +52,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Backend data files
+backend/data/*.json
+backend/data/*.csv
+backend/*.csv
+
+# Large scraped datasets
+backend/author_profile_urls.csv
+backend/author_url.csv
+backend/from_url_input.csv
