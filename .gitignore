@@ -48,3 +48,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Backend data files
+backend/data/*.json
+backend/data/*.csv
+backend/*.csv
+
+# Large scraped datasets
+backend/author_profile_urls.csv
+backend/author_url.csv
+backend/from_url_input.csv
