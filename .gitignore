@@ -5,6 +5,10 @@ data/
 
 __pycache__/
 
+.python-version
+
+.venv/
+
 .DS_Store
 
 # dependencies
