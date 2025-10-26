@@ -325,3 +325,37 @@ Deployed 932 persona agents to AWS EC2 with coordinator agent on Agentverse for 
 - All 932 personas accessible at public endpoints: /agents/personas, /agents/chat, /agents/analyze-ad, /agents/analyze-ad-multi
 - Agentverse deployment ready: coordinator_agent_agentverse.py with seed "advisor_coordinator_seed_v1_production", mailbox enabled
 - Git history cleaned: 36 commits rewritten, force-pushed to remove Claude co-author references
+
+## 2025-10-26 – Compact Session
+
+### #CurrentFocus
+Completed documentation for production deployment and added missing API endpoints for feature extraction and brand metadata
+
+### #SessionChanges
+- Created comprehensive README.md documenting full AdVisor system with all technologies, architecture, and deployment info
+- Updated README technology stack: clarified Bright Data Browser API with infinite scroll, Fetch.ai ASI:One for agents
+- Corrected cost metrics in README: OpenAI for one-time persona generation, Fetch.ai ASI:One for runtime agent reasoning
+- Created SUPAVISOR_README.md (135 lines) documenting Agentverse coordinator with deployment info, protocol, performance
+- Created SUPAVISOR_BIO.md with multiple bio formats (short/medium/long/elevator pitch/one-liner/tags) for Agentverse
+- Deployed SupaVisor coordinator to Agentverse: agent1qw8kzfh7gfv63ravqmclx9uzkxwa6mkqycty7nfctuzqlmcuz0wfzzy8lpl (@supavisor)
+- Copied /extract and /brandmeta routes from api/ to backend/api/routes/ for AWS deployment
+- Updated backend/main.py to include extract_router and brandmeta_router for missing endpoints
+- Changed CORS to allow_origins=["*"] for production external requests
+- Copied api/schemas.py, api/schemas_brandmeta.py, api/services/ to backend/api/ for dependencies
+
+### #NextSteps
+- Redeploy backend to AWS EC2 with /extract and /brandmeta endpoints (git pull + restart uvicorn) #Deprecated
+- Test /extract and /brandmeta endpoints on AWS to confirm 404 errors resolved
+- Begin Feature Extraction Engine implementation (Component 2)
+- Build frontend integration with SupaVisor coordinator on Agentverse
+
+### #BugsAndTheories
+- AWS 404 errors on /extract and /brandmeta ⇒ endpoints existed in api/ but not included in backend/main.py, fixed by copying routes
+
+### #Background
+- SupaVisor deployed on Agentverse as production coordinator orchestrating 932 AWS-hosted persona agents
+- README documents full stack: 932 personas powered by Fetch.ai ASI:One, coordinator on Agentverse, AWS EC2 deployment
+- Architecture: Frontend → SupaVisor (Agentverse) → AWS FastAPI → 932 Agents → Fetch.ai ASI:One API
+- All documentation completed: main README, SupaVisor README, deployment guides, bio variations for Agentverse profile
+- /extract endpoint: handles image/video uploads for feature extraction
+- /brandmeta endpoint: generates brand metadata using LLM providers (local/openai/google/anthropic)
