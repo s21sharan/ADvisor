@@ -8,12 +8,30 @@ type AgentNode = {
   x: number;
   y: number;
   community: number;
-  gender: string;
-  ageRange: string;
-  incomeLevel: string;
-  value1: string;
-  value2: string;
-  trait: string;
+  // Real persona data fields
+  persona_id?: string;
+  name?: string;
+  summary?: string;
+  demographics?: {
+    age_range?: string;
+    gender?: string;
+    income_level?: string;
+    location?: string;
+  };
+  psychographics?: {
+    values?: string[];
+    interests?: string[];
+    lifestyle?: string;
+  };
+  pain_points?: string[];
+  motivations?: string[];
+  // Legacy fields for backwards compatibility
+  gender?: string;
+  ageRange?: string;
+  incomeLevel?: string;
+  value1?: string;
+  value2?: string;
+  trait?: string;
 };
 
 type Edge = {
@@ -25,6 +43,7 @@ type Edge = {
 const DEFAULT_NODE_R = 4;
 const SELECTED_NODE_R = 7; // slightly larger highlight
 const MUTED_NODE_R = 3;
+const ANALYSIS_NODE_R = 4; // same size as default nodes
 const TRANSITION_MS = 500; // longer, smoother
 const DELAY_MS = 500; // shorter delay before selected nodes grow
 
@@ -177,6 +196,27 @@ export default function AgentGraph({
   const [hoverPos, setHoverPos] = useState<{ x: number; y: number } | null>(
     null
   );
+  const [realPersonas, setRealPersonas] = useState<any[]>([]);
+  const [personasLoaded, setPersonasLoaded] = useState(false);
+
+  // Fetch real personas from API
+  useEffect(() => {
+    const fetchPersonas = async () => {
+      try {
+        const response = await fetch("/api/personas");
+        if (response.ok) {
+          const data = await response.json();
+          setRealPersonas(data.personas || []);
+          setPersonasLoaded(true);
+          console.log(`✓ Loaded ${data.personas?.length || 0} real personas from database`);
+        }
+      } catch (error) {
+        console.error("Error fetching personas:", error);
+        setPersonasLoaded(true); // Still set to true to avoid blocking
+      }
+    };
+    fetchPersonas();
+  }, []);
 
   // Resize observer to keep SVG full-viewport
   useEffect(() => {
@@ -190,7 +230,9 @@ export default function AgentGraph({
 
   const nodes = useMemo(() => {
     if (!viewport.width || !viewport.height) return [] as AgentNode[];
-    const total = numCommunities * membersPerCommunity;
+
+    // Use real personas if loaded, otherwise generate fake data
+    const total = realPersonas.length > 0 ? realPersonas.length : numCommunities * membersPerCommunity;
     const generated = generateEllipseDistributedNodes(
       total,
       viewport.width,
@@ -201,8 +243,32 @@ export default function AgentGraph({
       numCommunities,
       membersPerCommunity
     );
+
+    // Map real persona data to nodes
     for (let i = 0; i < total; i += 1) {
       generated[i].community = assignments[i];
+      // Override node ID to be sequential (0-931 becomes 1-932 for display)
+      generated[i].id = i;
+
+      // If we have real personas, use them
+      if (realPersonas.length > 0 && i < realPersonas.length) {
+        const persona = realPersonas[i];
+        generated[i].persona_id = persona.id;
+        generated[i].name = persona.name;
+        generated[i].summary = persona.summary;
+        generated[i].demographics = persona.demographics;
+        generated[i].psychographics = persona.psychographics;
+        generated[i].pain_points = persona.pain_points;
+        generated[i].motivations = persona.motivations;
+
+        // Map to legacy fields for display
+        generated[i].gender = persona.demographics?.gender || "Unknown";
+        generated[i].ageRange = persona.demographics?.age_range || "Unknown";
+        generated[i].incomeLevel = persona.demographics?.income_level || "Unknown";
+        generated[i].value1 = persona.psychographics?.values?.[0] || "N/A";
+        generated[i].value2 = persona.psychographics?.values?.[1] || "N/A";
+        generated[i].trait = persona.psychographics?.lifestyle || "N/A";
+      }
     }
     return generated;
   }, [
@@ -210,6 +276,8 @@ export default function AgentGraph({
     viewport.height,
     numCommunities,
     membersPerCommunity,
+    realPersonas,
+    personasLoaded,
   ]);
 
   const links = useMemo(() => {
@@ -401,6 +469,7 @@ export default function AgentGraph({
               setHoverPos({ x: t.invertX(px), y: t.invertY(py) });
             })
             .on("click", function (_evt, d) {
+              // Allow clicking on any node to open the detail panel
               setActiveNodeId((prev) => (prev === d.id ? null : d.id));
             }),
         (update) => update,
@@ -430,13 +499,17 @@ export default function AgentGraph({
           ? 1
           : 0.25
       )
-      .attr("r", (d) =>
-        selectedCommunity === null
+      .attr("r", (d) => {
+        // If there's an analysis map, analyzed nodes get bigger size
+        if (analysisMap && analysisMap[d.id]) {
+          return ANALYSIS_NODE_R;
+        }
+        return selectedCommunity === null
           ? DEFAULT_NODE_R
           : d.community === selectedCommunity
           ? SELECTED_NODE_R
-          : MUTED_NODE_R
-      )
+          : MUTED_NODE_R;
+      })
       .attr("stroke", "#111827")
       .attr("stroke-width", 0.2);
 
@@ -494,6 +567,17 @@ export default function AgentGraph({
     // Radius: selected nodes wait, then grow; others adjust immediately
     circles.each(function (d) {
       const sel = d3.select(this);
+
+      // If node is in analysis map, make it bigger
+      if (analysisMap && analysisMap[d.id]) {
+        sel
+          .transition()
+          .duration(TRANSITION_MS)
+          .ease(d3.easeCubicOut)
+          .attr("r", ANALYSIS_NODE_R);
+        return;
+      }
+
       if (selectedCommunity === null) {
         sel
           .transition()
@@ -633,31 +717,65 @@ export default function AgentGraph({
         <g ref={gRef} />
       </svg>
 
-      {/* Hover tooltip (small, offset, follows pointer with transition) */}
-      {hoverNodeId !== null && hoverPos && (() => {
+      {/* Hover tooltip (small, offset, follows pointer with transition) - hide when node is clicked */}
+      {hoverNodeId !== null && activeNodeId === null && hoverPos && (() => {
         const n = nodes.find((x) => x.id === hoverNodeId);
         if (!n) return null;
         const a = analysisMap?.[n.id];
-        const offsetX = 18;
-        const offsetY = -16;
+
+        // Estimate tooltip dimensions
+        const tooltipWidth = 320; // increased width for 2 lines
+        const tooltipHeight = a ? 100 : 30; // increased height for 2 lines of insight
+        const padding = 16;
+
+        // Calculate position with boundary checks
+        let leftPos = hoverPos.x + 18;
+        let topPos = hoverPos.y - 16;
+
+        // Adjust horizontal position if too close to right edge
+        if (leftPos + tooltipWidth > viewport.width - padding) {
+          leftPos = hoverPos.x - 18 - tooltipWidth / 2;
+        }
+
+        // Adjust vertical position if too close to top
+        if (topPos - tooltipHeight < padding) {
+          topPos = hoverPos.y + 30; // Show below cursor instead
+        }
+
+        // Ensure it doesn't go off left edge
+        if (leftPos < padding) {
+          leftPos = padding;
+        }
+
         return (
           <div
-            className="pointer-events-none absolute px-2 py-1 rounded-md bg-neutral-900/90 border border-neutral-700 text-[11px] text-white/90 shadow-md"
+            className="pointer-events-none absolute px-3 py-2 rounded-md bg-neutral-900/95 border border-neutral-700 text-[11px] text-white/90 shadow-lg"
             style={{
-              left: hoverPos.x + offsetX,
-              top: hoverPos.y + offsetY,
+              left: leftPos,
+              top: topPos,
               transform: "translate(-50%, -100%)",
-              whiteSpace: "nowrap",
               transition: "left 80ms linear, top 80ms linear, opacity 120ms ease-out",
               opacity: 1,
+              maxWidth: "320px",
             }}
           >
-            <div>{`Agent #${n.id}`}</div>
+            <div>{`Agent #${n.id + 1}`}</div>
             {a && (
               <div className="mt-1 text-[10px] text-neutral-300">
                 <div>{`Community ${String(n.community + 1).padStart(2, "0")}`}</div>
                 <div>{`Attention: ${a.attention}`}</div>
-                <div className="max-w-[260px] truncate">{a.insight}</div>
+                <div
+                  className="max-w-[300px] mt-1 leading-relaxed"
+                  style={{
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    whiteSpace: "normal"
+                  }}
+                >
+                  {a.insight}
+                </div>
               </div>
             )}
           </div>
@@ -668,20 +786,90 @@ export default function AgentGraph({
       {activeNodeId !== null && (() => {
         const n = nodes.find((x) => x.id === activeNodeId);
         if (!n) return null;
+        const a = analysisMap?.[n.id];
+
+        // Calculate card dimensions
+        const cardWidth = 420;
+        const cardHeight = a ? 400 : 320; // taller if there's analysis info
+        const padding = 16;
+        const offsetX = 20;
+        const offsetY = 20;
+
+        // Start with preferred position (right and below)
+        let leftPos = n.x + offsetX;
+        let topPos = n.y + offsetY;
+
+        // HORIZONTAL POSITIONING
+        // Check if card would go off right edge
+        if (leftPos + cardWidth > viewport.width - padding) {
+          // Try left side of node
+          const leftSidePos = n.x - cardWidth - offsetX;
+          if (leftSidePos >= padding) {
+            leftPos = leftSidePos;
+          } else {
+            // Clamp to right edge with padding
+            leftPos = viewport.width - cardWidth - padding;
+          }
+        }
+
+        // VERTICAL POSITIONING
+        // Check if card would go off bottom edge
+        if (topPos + cardHeight > viewport.height - padding) {
+          // Try above node
+          const abovePos = n.y - cardHeight - offsetY;
+          if (abovePos >= padding) {
+            topPos = abovePos;
+          } else {
+            // Clamp to bottom edge with padding
+            topPos = viewport.height - cardHeight - padding;
+          }
+        }
+
+        // Final safety clamps (should rarely trigger with above logic)
+        leftPos = Math.max(padding, Math.min(leftPos, viewport.width - cardWidth - padding));
+        topPos = Math.max(padding, Math.min(topPos, viewport.height - cardHeight - padding));
+
         return (
           <div
             className="absolute max-w-[420px] w-[420px] rounded-2xl bg-neutral-900/90 border border-neutral-700 shadow-2xl p-5"
-            style={{ left: Math.min(Math.max(16, n.x + 20), Math.max(16, viewport.width - 436)), top: Math.min(Math.max(16, n.y + 20), Math.max(16, viewport.height - 320)) }}
+            style={{ left: leftPos, top: topPos }}
           >
             <div className="flex items-start justify-between">
-              <div className="text-2xl font-semibold">{`Agent #${n.id}`}</div>
+              <div>
+                <div className="text-2xl font-semibold">{`Agent #${n.id + 1}`}</div>
+                {n.name && (
+                  <div className="text-sm text-neutral-400 mt-1">{n.name}</div>
+                )}
+              </div>
               <button
-                className="text-neutral-400 hover:text-white"
+                className="text-neutral-400 hover:text-white text-2xl leading-none"
                 onClick={() => setActiveNodeId(null)}
               >
                 ×
               </button>
             </div>
+
+            {/* Show attention info if available */}
+            {a && (
+              <div className="mt-3 p-3 rounded-lg bg-neutral-800/50 border border-neutral-700">
+                <div className="text-sm text-neutral-300 mb-1">
+                  <span className="text-neutral-400">Community:</span> {String(n.community + 1).padStart(2, "0")}
+                </div>
+                <div className="text-sm text-neutral-300 mb-2">
+                  <span className="text-neutral-400">Attention:</span>{" "}
+                  <span className={
+                    a.attention === "full" ? "text-green-400 font-medium" :
+                    a.attention === "ignore" ? "text-red-400 font-medium" :
+                    "text-gray-400 font-medium"
+                  }>
+                    {a.attention}
+                  </span>
+                </div>
+                <div className="text-sm text-white italic">
+                  "{a.insight}"
+                </div>
+              </div>
+            )}
 
             <div className="mt-4 flex flex-wrap gap-2">
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
@@ -693,20 +881,55 @@ export default function AgentGraph({
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
                 {n.incomeLevel}
               </div>
-              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
-                {n.trait}
-              </div>
-              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
-                {n.value1}
-              </div>
-              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
-                {n.value2}
-              </div>
+              {n.value1 && n.value1 !== "N/A" && (
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
+                  {n.value1}
+                </div>
+              )}
+              {n.value2 && n.value2 !== "N/A" && (
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
+                  {n.value2}
+                </div>
+              )}
             </div>
 
-            <p className="mt-4 text-sm text-neutral-300">
-              Sample profile summary goes here. Once real agent data is available, this will contain a concise 2–3 sentence description of motivations, preferences, and behaviors.
-            </p>
+            {/* Real persona summary */}
+            {n.summary ? (
+              <p className="mt-4 text-sm text-neutral-300 leading-relaxed">
+                {n.summary}
+              </p>
+            ) : (
+              <p className="mt-4 text-sm text-neutral-400 italic">
+                No profile summary available.
+              </p>
+            )}
+
+            {/* Show pain points and motivations if available */}
+            {(n.pain_points && n.pain_points.length > 0) && (
+              <div className="mt-4">
+                <div className="text-xs font-semibold text-neutral-400 mb-2">Pain Points:</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {n.pain_points.slice(0, 3).map((point, idx) => (
+                    <span key={idx} className="text-xs px-2 py-1 rounded bg-red-900/30 text-red-300 border border-red-800/50">
+                      {point}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {(n.motivations && n.motivations.length > 0) && (
+              <div className="mt-3">
+                <div className="text-xs font-semibold text-neutral-400 mb-2">Motivations:</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {n.motivations.slice(0, 3).map((motivation, idx) => (
+                    <span key={idx} className="text-xs px-2 py-1 rounded bg-green-900/30 text-green-300 border border-green-800/50">
+                      {motivation}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         );
       })()}

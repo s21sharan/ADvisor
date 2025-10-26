@@ -288,3 +288,116 @@ Integrated Fetch.ai ASI:One API to power all 932 persona agents with asi1-mini m
 - Agents access embedded messages/content via vector similarity search in Supabase
 - Removed all Elasticsearch dependencies per user request (reverted to Supabase-only for vector search)
 - API running at http://localhost:8000 with full persona agent functionality
+
+## 2025-10-26 – Compact Session
+
+### #CurrentFocus
+Deployed 932 persona agents to AWS EC2 with coordinator agent on Agentverse for distributed ad analysis
+
+### #SessionChanges
+- Created coordinator_agent.py to orchestrate multi-persona ad analysis through FastAPI endpoints
+- Built complete AWS deployment pipeline: Dockerfile, docker-compose.yml, deploy.sh, systemd service config
+- Created AWS_DEPLOYMENT.md and AGENTVERSE_DEPLOYMENT.md comprehensive deployment guides
+- Deployed FastAPI with 932 Fetch.ai persona agents to AWS EC2 instance at 52.53.159.105:8000
+- Resolved Amazon Linux compatibility issues (yum vs apt, dateparser module, nested directories, port conflicts)
+- Created coordinator_agent_agentverse.py production-ready for Agentverse deployment with mailbox system
+- Cleaned git history to remove all "Co-Authored-By: Claude" references using filter-branch
+- Attempted Agentverse registration using uAgents framework (5 test agents created with cryptographic signatures)
+- Tested end-to-end AWS API: all 6 endpoints operational, multi-persona analysis working with sentiment summaries
+
+### #NextSteps
+- Complete Agentverse coordinator deployment (leave Agent Endpoint URL blank, paste coordinator_agent_agentverse.py code)
+- Test end-to-end flow: Agentverse Coordinator → AWS FastAPI → 932 Personas → Fetch.ai ASI:One
+- Optional: Set up systemd service for auto-restart, configure HTTPS with Nginx, add API authentication
+- Begin Feature Extraction Engine (Component 2) for ad creative multimodal analysis
+
+### #BugsAndTheories
+- Agentverse API 401 "Could not validate challenge proof" ⇒ requires cryptographic signatures with private keys via uAgents framework
+- EC2 `apt: command not found` ⇒ Amazon Linux uses yum not apt, adjusted all deployment commands
+- Port 8000 conflict on EC2 ⇒ previous instance running, killed with lsof + kill -9
+- Nested AdVisor/AdVisor directory ⇒ user in wrong path, corrected to ~/AdVisor/backend
+- Missing dateparser module ⇒ not in requirements.txt, installed manually with pip
+
+### #Background
+- Architecture: Agentverse Coordinator → AWS FastAPI (52.53.159.105:8000) → 932 Personas → Fetch.ai ASI:One API
+- AWS Instance: i-00b8b674817dfd056 running Amazon Linux, public IP 52.53.159.105, private IP 172.31.1.169
+- Coordinator agent uses AdAnalysisRequest/AdAnalysisResponse models for structured messaging via uAgents protocol
+- All 932 personas accessible at public endpoints: /agents/personas, /agents/chat, /agents/analyze-ad, /agents/analyze-ad-multi
+- Agentverse deployment ready: coordinator_agent_agentverse.py with seed "advisor_coordinator_seed_v1_production", mailbox enabled
+- Git history cleaned: 36 commits rewritten, force-pushed to remove Claude co-author references
+
+## 2025-10-26 – Compact Session
+
+### #CurrentFocus
+Completed documentation for production deployment and added missing API endpoints for feature extraction and brand metadata
+
+### #SessionChanges
+- Created comprehensive README.md documenting full AdVisor system with all technologies, architecture, and deployment info
+- Updated README technology stack: clarified Bright Data Browser API with infinite scroll, Fetch.ai ASI:One for agents
+- Corrected cost metrics in README: OpenAI for one-time persona generation, Fetch.ai ASI:One for runtime agent reasoning
+- Created SUPAVISOR_README.md (135 lines) documenting Agentverse coordinator with deployment info, protocol, performance
+- Created SUPAVISOR_BIO.md with multiple bio formats (short/medium/long/elevator pitch/one-liner/tags) for Agentverse
+- Deployed SupaVisor coordinator to Agentverse: agent1qw8kzfh7gfv63ravqmclx9uzkxwa6mkqycty7nfctuzqlmcuz0wfzzy8lpl (@supavisor)
+- Copied /extract and /brandmeta routes from api/ to backend/api/routes/ for AWS deployment
+- Updated backend/main.py to include extract_router and brandmeta_router for missing endpoints
+- Changed CORS to allow_origins=["*"] for production external requests
+- Copied api/schemas.py, api/schemas_brandmeta.py, api/services/ to backend/api/ for dependencies
+
+### #NextSteps
+- Redeploy backend to AWS EC2 with /extract and /brandmeta endpoints (git pull + restart uvicorn) #Deprecated
+- Test /extract and /brandmeta endpoints on AWS to confirm 404 errors resolved
+- Begin Feature Extraction Engine implementation (Component 2)
+- Build frontend integration with SupaVisor coordinator on Agentverse
+
+### #BugsAndTheories
+- AWS 404 errors on /extract and /brandmeta ⇒ endpoints existed in api/ but not included in backend/main.py, fixed by copying routes
+
+### #Background
+- SupaVisor deployed on Agentverse as production coordinator orchestrating 932 AWS-hosted persona agents
+- README documents full stack: 932 personas powered by Fetch.ai ASI:One, coordinator on Agentverse, AWS EC2 deployment
+- Architecture: Frontend → SupaVisor (Agentverse) → AWS FastAPI → 932 Agents → Fetch.ai ASI:One API
+- All documentation completed: main README, SupaVisor README, deployment guides, bio variations for Agentverse profile
+- /extract endpoint: handles image/video uploads for feature extraction
+- /brandmeta endpoint: generates brand metadata using LLM providers (local/openai/google/anthropic)
+
+## 2025-10-26 – ASI:One Direct Integration
+
+### #CurrentFocus
+Replaced EC2 agent architecture with direct ASI:One integration for intelligent persona-based ad analysis
+
+### #SessionChanges
+- Created smart_agent_selector.py with intelligent persona selection (age + 40% industry match algorithm)
+- **OpenAI-powered persona selection**: Uses GPT-4o-mini to semantically rank personas by industry relevance (replaces keyword matching)
+- Built /api/analyze-ad-smart endpoint that uses ASI:One agents directly instead of EC2
+- ASI:One agents analyze feature vectors (moondream + visual features) from each persona's perspective
+- Each persona gets unique system prompt with demographics, psychographics, pain points, motivations
+- Agents return structured JSON: {attention: "full"|"partial"|"ignore", insight: "reaction text"}
+- Updated frontend dashboard to pass feature_vector instead of ad_description
+- Frontend maps 50 persona analyses to random graph nodes for visualization
+- Click interaction shows persona insight + attention level with color coding (green/yellow/red)
+- Restricted clicks to only highlighted dots (nodes with analysis data)
+- Added fallback to keyword matching if OpenAI selection fails
+
+### #NextSteps
+- Test complete flow: upload ad → extract features → smart persona selection → ASI:One analysis
+- Monitor ASI:One API costs and performance with 50 concurrent persona analyses
+- Consider batch processing or async if 50 sequential calls take too long
+- Add loading states in frontend during analysis
+
+### #BugsAndTheories
+- None identified yet - awaiting first real test
+
+### #Background
+- **New Architecture**: Frontend → Next.js API → Smart Selector (OpenAI + Supabase) → ASI:One (50 personas) → Save Results
+- **Smart Selection Process**:
+  1. Filter personas by target age range (e.g., "18-24")
+  2. Use OpenAI GPT-4o-mini to semantically rank by industry relevance
+  3. Select top 40% most relevant (e.g., 20 personas for fitness ad get fitness enthusiasts)
+  4. Fill remaining 60% with age-matched diverse perspectives
+- **Persona Prompts**: Each ASI:One call embodies different persona with full context from Supabase
+- **Feature Analysis**: Moondream summary, caption, CTA, keywords + color palette, whitespace, aspect ratio
+- **Cost Efficiency**:
+  - Removed EC2 dependency
+  - OpenAI selection: ~1 call per analysis (~$0.001)
+  - ASI:One analysis: 50 personas × ~200 tokens = ~10k tokens/analysis
+- **Visualization**: 50 analyzed personas highlighted on 1000-node graph, clickable for detailed insights
