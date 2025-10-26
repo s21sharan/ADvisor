@@ -10,6 +10,10 @@ from models.reddit_post import SubredditScrapeRequest, SubredditScrapeResponse
 # Import persona agent router
 from api.persona_agents import router as agents_router
 
+# Import extract and brandmeta routers
+from api.routes.extract import router as extract_router
+from api.routes.brandmeta import router as brandmeta_router
+
 # Load environment variables from parent directory
 from pathlib import Path
 env_path = Path(__file__).parent.parent / '.env'
@@ -21,10 +25,10 @@ app = FastAPI(
     version="3.0.0"
 )
 
-# CORS middleware for Next.js frontend
+# CORS middleware for frontend and external services
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["*"],  # Allow all origins for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -35,6 +39,10 @@ scraper = RedditScraperV2()
 # Include persona agent routes
 app.include_router(agents_router)
 
+# Include extract and brandmeta routes
+app.include_router(extract_router)
+app.include_router(brandmeta_router)
+
 
 @app.get("/")
 async def root():
@@ -44,6 +52,8 @@ async def root():
         "endpoints": {
             "/scrape": "POST - Scrape a subreddit",
             "/health": "GET - Health check",
+            "/extract": "POST - Extract features from ad creative (image/video)",
+            "/brandmeta": "POST - Get brand metadata",
             "/agents/personas": "GET - List available personas",
             "/agents/chat": "POST - Chat with a persona agent",
             "/agents/analyze-ad": "POST - Get ad feedback from a persona",
