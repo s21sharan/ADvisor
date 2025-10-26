@@ -7,15 +7,18 @@ from datetime import datetime
 from scraper.reddit_scraper_v2 import RedditScraperV2
 from models.reddit_post import SubredditScrapeRequest, SubredditScrapeResponse
 
+# Import persona agent router
+from api.persona_agents import router as agents_router
+
 # Load environment variables from parent directory
 from pathlib import Path
 env_path = Path(__file__).parent.parent / '.env'
 load_dotenv(dotenv_path=env_path)
 
 app = FastAPI(
-    title="AdVisor Reddit Scraper API",
-    description="API for scraping Reddit subreddits using Bright Data Dataset API",
-    version="2.0.0"
+    title="AdVisor API",
+    description="API for Reddit scraping and AI-powered persona agents",
+    version="3.0.0"
 )
 
 # CORS middleware for Next.js frontend
@@ -29,14 +32,23 @@ app.add_middleware(
 
 scraper = RedditScraperV2()
 
+# Include persona agent routes
+app.include_router(agents_router)
+
 
 @app.get("/")
 async def root():
     return {
-        "message": "AdVisor Reddit Scraper API",
+        "message": "AdVisor API",
+        "version": "3.0.0",
         "endpoints": {
             "/scrape": "POST - Scrape a subreddit",
-            "/health": "GET - Health check"
+            "/health": "GET - Health check",
+            "/agents/personas": "GET - List available personas",
+            "/agents/chat": "POST - Chat with a persona agent",
+            "/agents/analyze-ad": "POST - Get ad feedback from a persona",
+            "/agents/analyze-ad-multi": "POST - Get ad feedback from multiple personas",
+            "/docs": "GET - Interactive API documentation"
         }
     }
 
