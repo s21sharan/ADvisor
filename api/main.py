@@ -47,9 +47,13 @@ try:
         sys.path.append(str(project_root))
 
     from api.routes.extract import router as extract_router
+    from api.routes.brandmeta import router as brandmeta_router
 
     app.include_router(extract_router)
     logger.info("/extract route registered")
+
+    app.include_router(brandmeta_router)
+    logger.info("/brandmeta route registered")
 except Exception as exc:  # pragma: no cover - safe startup if route missing during dev
     logger.warning("Failed to register /extract route: %s", exc)
 
