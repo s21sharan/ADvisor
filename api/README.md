@@ -102,4 +102,60 @@ For videos, OCR is aggregated across sampled frames. Control sampling with:
 export VIDEO_OCR_FPS=10
 ```
 
+## BrandMeta Endpoint
+
+POST /brandmeta converts ad features + Moondream summary into BrandMeta for audience routing.
+
+### Environment
+
+- `BRANDMETA_PROVIDER=local|openai|google|anthropic` (default `local`)
+- `OPENAI_API_KEY`, `GOOGLE_API_KEY`, `ANTHROPIC_API_KEY` as applicable
+- `DEBUG=true|false` to include raw prompts in `notes`
+
+### Request
+
+Provide either:
+
+- `features` (object from `/extract`) and optionally `moondream_summary` and `declared_company` within the same object, or
+- raw fields: `ocr_text`, `moondream_summary`, `detected_brand_names`, `declared_company`, `numbers_found`, `hints`
+
+Query params: `provider`, `temperature`, `debug`
+
+### Response
+
+See contract in this repo's task description. Shape:
+
+```
+{
+  "brand_meta": { ... },
+  "used_provider": "local|openai|google|anthropic",
+  "latency_ms": 0,
+  "notes": []
+}
+```
+
+### Example curl
+
+```
+curl -s -X POST http://localhost:8000/brandmeta \
+  -H "Content-Type: application/json" \
+  -d '{
+    "features": {
+      "features": {
+        "ocr": {"text":"1¢ down + 1 month free at Crunch Fitness"},
+        "color": {"colorfulness":0, "mean_bgr":[0,0,0], "std_bgr":[0,0,0], "palette_hex":["#000000","#000000","#000000","#000000","#000000"]},
+        "layout": {"aspect_ratio":1.0, "whitespace_ratio":0.0}
+      },
+      "moondream_summary":"gym equipment, people exercising",
+      "declared_company":"Crunch Fitness"
+    }
+  }' | jq .
+```
+
+### Tests to try
+
+- Crunch Fitness: "1¢ down + 1 month free" → category other, budget-biased keywords include `fitness`, `promotion`, `limited-time`
+- Wearable ring `$299` + Moondream "sleek metal ring, sleep tracking" → wearable health, premium, keywords include `biohackers`, `sleep`, `privacy`, `status`
+- Auto insurance OCR "get a quote today, save 15%" → insurance, price unknown, warning for missing explicit price
+
 
