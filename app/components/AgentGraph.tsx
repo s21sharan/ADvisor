@@ -402,7 +402,10 @@ export default function AgentGraph({
               setHoverPos({ x: t.invertX(px), y: t.invertY(py) });
             })
             .on("click", function (_evt, d) {
-              setActiveNodeId((prev) => (prev === d.id ? null : d.id));
+              // Only allow clicking on nodes that have analysis data
+              if (analysisMap && analysisMap[d.id]) {
+                setActiveNodeId((prev) => (prev === d.id ? null : d.id));
+              }
             }),
         (update) => update,
         (exit) => exit.remove()
@@ -654,18 +657,42 @@ export default function AgentGraph({
         const n = nodes.find((x) => x.id === hoverNodeId);
         if (!n) return null;
         const a = analysisMap?.[n.id];
-        const offsetX = 18;
-        const offsetY = -16;
+
+        // Estimate tooltip dimensions
+        const tooltipWidth = 280; // max-width estimate
+        const tooltipHeight = a ? 80 : 30; // height varies based on content
+        const padding = 16;
+
+        // Calculate position with boundary checks
+        let leftPos = hoverPos.x + 18;
+        let topPos = hoverPos.y - 16;
+
+        // Adjust horizontal position if too close to right edge
+        if (leftPos + tooltipWidth > viewport.width - padding) {
+          leftPos = hoverPos.x - 18 - tooltipWidth / 2;
+        }
+
+        // Adjust vertical position if too close to top
+        if (topPos - tooltipHeight < padding) {
+          topPos = hoverPos.y + 30; // Show below cursor instead
+        }
+
+        // Ensure it doesn't go off left edge
+        if (leftPos < padding) {
+          leftPos = padding;
+        }
+
         return (
           <div
             className="pointer-events-none absolute px-2 py-1 rounded-md bg-neutral-900/90 border border-neutral-700 text-[11px] text-white/90 shadow-md"
             style={{
-              left: hoverPos.x + offsetX,
-              top: hoverPos.y + offsetY,
+              left: leftPos,
+              top: topPos,
               transform: "translate(-50%, -100%)",
               whiteSpace: "nowrap",
               transition: "left 80ms linear, top 80ms linear, opacity 120ms ease-out",
               opacity: 1,
+              maxWidth: "280px",
             }}
           >
             <div>{`Agent #${n.id}`}</div>
@@ -685,10 +712,52 @@ export default function AgentGraph({
         const n = nodes.find((x) => x.id === activeNodeId);
         if (!n) return null;
         const a = analysisMap?.[n.id];
+
+        // Calculate card dimensions
+        const cardWidth = 420;
+        const cardHeight = a ? 400 : 320; // taller if there's analysis info
+        const padding = 16;
+        const offsetX = 20;
+        const offsetY = 20;
+
+        // Start with preferred position (right and below)
+        let leftPos = n.x + offsetX;
+        let topPos = n.y + offsetY;
+
+        // HORIZONTAL POSITIONING
+        // Check if card would go off right edge
+        if (leftPos + cardWidth > viewport.width - padding) {
+          // Try left side of node
+          const leftSidePos = n.x - cardWidth - offsetX;
+          if (leftSidePos >= padding) {
+            leftPos = leftSidePos;
+          } else {
+            // Clamp to right edge with padding
+            leftPos = viewport.width - cardWidth - padding;
+          }
+        }
+
+        // VERTICAL POSITIONING
+        // Check if card would go off bottom edge
+        if (topPos + cardHeight > viewport.height - padding) {
+          // Try above node
+          const abovePos = n.y - cardHeight - offsetY;
+          if (abovePos >= padding) {
+            topPos = abovePos;
+          } else {
+            // Clamp to bottom edge with padding
+            topPos = viewport.height - cardHeight - padding;
+          }
+        }
+
+        // Final safety clamps (should rarely trigger with above logic)
+        leftPos = Math.max(padding, Math.min(leftPos, viewport.width - cardWidth - padding));
+        topPos = Math.max(padding, Math.min(topPos, viewport.height - cardHeight - padding));
+
         return (
           <div
             className="absolute max-w-[420px] w-[420px] rounded-2xl bg-neutral-900/90 border border-neutral-700 shadow-2xl p-5"
-            style={{ left: Math.min(Math.max(16, n.x + 20), Math.max(16, viewport.width - 436)), top: Math.min(Math.max(16, n.y + 20), Math.max(16, viewport.height - 320)) }}
+            style={{ left: leftPos, top: topPos }}
           >
             <div className="flex items-start justify-between">
               <div className="text-2xl font-semibold">{`Agent #${n.id}`}</div>
