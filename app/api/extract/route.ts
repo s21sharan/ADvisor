@@ -7,13 +7,14 @@ export async function POST(req: Request) {
   try {
     const formData = await req.formData();
     const file = formData.get("file");
-    if (!(file instanceof File)) {
+
+    if (!file || typeof file === "string") {
       return NextResponse.json({ error: "file is required" }, { status: 400 });
     }
 
+    // file is a Blob or File
     const outbound = new FormData();
-    // Some environments may provide a Blob without name; ensure a filename
-    const filename = (file as File).name || "upload.bin";
+    const filename = (file as any).name || "upload.bin";
     outbound.append("file", file, filename);
 
     const resp = await fetch("http://52.53.159.105:8000/extract", {

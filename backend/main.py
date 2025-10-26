@@ -58,7 +58,7 @@ async def root():
         "endpoints": {
             "/scrape": "POST - Scrape a subreddit",
             "/health": "GET - Health check",
-            "/extract": "POST - Extract features from ad creative (image/video)",
+            "/extract": "POST - Extract features from ad creative (file blob upload)",
             "/brandmeta": "POST - Get brand metadata",
             "/api/analyze-ad-smart": "POST - Smart ad analysis with persona selection",
             "/agents/personas": "GET - List available personas",

@@ -37,7 +37,7 @@ def _detect_modality(mime: Optional[str], filename: str) -> Literal["image", "vi
 
 @router.post("/extract", response_model=ExtractResponse)
 async def extract(file: UploadFile = File(...)) -> ExtractResponse:
-    """Extract minimal visual features from an uploaded image or video file."""
+    """Extract minimal visual features from an uploaded image or video file (file blob)."""
     if file is None:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Empty file upload.")
 
