@@ -1,6 +1,6 @@
 """
 Ad Analysis Orchestration Endpoint
-Selects relevant personas, uses ASI:One agents for analysis, saves results to Supabase
+Selects relevant personas, uses OpenAI agents for analysis, saves results to Supabase
 """
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
@@ -8,12 +8,15 @@ from typing import List, Dict, Any, Optional
 import json
 import sys
 from pathlib import Path
+import time
+import asyncio
+import os
 
 sys.path.append(str(Path(__file__).parent.parent.parent))
 
 from api.smart_agent_selector import smart_selector
 from db.supabase_client import supabase_client
-from utils.fetchai_client import FetchAIClient
+from openai import OpenAI
 
 router = APIRouter(prefix="/api", tags=["Ad Analysis"])
 
@@ -21,11 +24,17 @@ router = APIRouter(prefix="/api", tags=["Ad Analysis"])
 # Request/Response Models
 class AdAnalysisRequest(BaseModel):
     """Request for intelligent ad analysis with persona selection"""
-    ad_id: str = Field(..., description="ID of the ad analysis from Supabase")
+    ad_id: Optional[str] = Field(None, description="Optional: ID of existing ad analysis from Supabase")
     feature_vector: Dict[str, Any] = Field(..., description="Extracted features from the ad (moondream, colors, layout, etc.)")
     target_age_range: Optional[str] = Field(None, description="Target age range: '18-24', '25-34', '35-44', '45+'")
     industry_keywords: Optional[List[str]] = Field(None, description="Industry/interest keywords (e.g., ['fitness', 'health'])")
     num_personas: int = Field(50, description="Number of personas to select")
+
+    # Optional: Full ad_analyses record data (for creating new record)
+    ad_name: Optional[str] = Field(None, description="Name of the ad")
+    brand_name: Optional[str] = Field(None, description="Brand name")
+    image_url: Optional[str] = Field(None, description="URL of the ad image")
+    user_id: Optional[str] = Field(None, description="User ID who created the ad")
 
 
 class PersonaAnalysisResult(BaseModel):
@@ -49,7 +58,7 @@ async def analyze_ad_with_smart_selection(request: AdAnalysisRequest):
     """
     Intelligently analyze an ad using:
     1. Smart persona selection (age + 40% industry match)
-    2. ASI:One agents to analyze feature vectors from each persona's perspective
+    2. OpenAI GPT-4o-mini to analyze feature vectors from each persona's perspective
     3. Aggregate results and save to Supabase
 
     Returns:
@@ -73,14 +82,16 @@ async def analyze_ad_with_smart_selection(request: AdAnalysisRequest):
 
         print(f"✓ Selected {len(selected_personas)} personas")
 
-        # Step 2: Initialize ASI:One client
-        fetchai_client = FetchAIClient(model="asi1-mini")
+        # Step 2: Initialize OpenAI client
+        openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-        # Step 3: Analyze ad from each persona's perspective using ASI:One
+        # Step 3: Analyze ad from each persona's perspective using OpenAI GPT-4o-mini
         analysis_results = {}
         attention_counts = {"full": 0, "partial": 0, "ignore": 0}
 
-        for persona in selected_personas:
+        print(f"Starting analysis of {len(selected_personas)} personas with rate limiting...")
+
+        for idx, persona in enumerate(selected_personas):
             persona_id = str(persona['id'])
 
             # Build persona context
@@ -145,13 +156,28 @@ VISUAL FEATURES:
 How would YOU as this persona react to this ad? Provide your response in JSON format."""
 
             try:
-                # Call ASI:One
-                response_text = fetchai_client.generate_response(
-                    prompt=user_prompt,
-                    system_prompt=system_prompt,
+                # Rate limiting: 0.2 second delay between requests
+                if idx > 0:
+                    time.sleep(0.2)
+
+                # Call OpenAI GPT-4o-mini
+                messages = [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ]
+
+                response = openai_client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=messages,
                     temperature=0.7,
-                    max_tokens=200
+                    max_tokens=200,
+                    response_format={"type": "json_object"}
                 )
+
+                response_text = response.choices[0].message.content
+
+                if idx % 10 == 0:
+                    print(f"  Progress: {idx}/{len(selected_personas)} personas analyzed")
 
                 # Parse JSON response
                 # Extract JSON from response (handle cases where model adds extra text)
@@ -169,10 +195,14 @@ How would YOU as this persona react to this ad? Provide your response in JSON fo
                     insight = response_text[:200]
 
             except Exception as e:
-                print(f"Error analyzing with persona {persona_id}: {e}")
+                error_msg = str(e)
+                if "400" in error_msg or "Bad Request" in error_msg:
+                    print(f"⚠️  API Error for persona {persona_id}: {error_msg[:100]}")
+                else:
+                    print(f"Error analyzing with persona {persona_id}: {e}")
                 # Fallback for errors
                 attention = "partial"
-                insight = "Analysis unavailable for this persona."
+                insight = "Analysis unavailable due to API error."
 
             analysis_results[persona_id] = {
                 "insight": insight,
@@ -182,7 +212,7 @@ How would YOU as this persona react to this ad? Provide your response in JSON fo
 
             attention_counts[attention] += 1
 
-        print(f"✓ Completed {len(analysis_results)} persona analyses using ASI:One")
+        print(f"✓ Completed {len(selected_personas)} persona analyses using OpenAI GPT-4o-mini")
 
         # Step 4: Create summary
         total = len(analysis_results)
@@ -201,27 +231,80 @@ How would YOU as this persona react to this ad? Provide your response in JSON fo
         }
 
         # Step 5: Save to Supabase ad_analyses table
-        print(f"Saving results to Supabase for ad_id: {request.ad_id}")
-
         # Format for storage: {byId: {persona_id: {insight, attention}}, selected: [persona_ids]}
         agent_results = {
             "byId": analysis_results,
             "selected": list(analysis_results.keys())
         }
 
-        # Update the ad_analyses record
-        update_response = supabase_client.from_("ad_analyses").update({
-            "agent_results": agent_results
-        }).eq("id", request.ad_id).execute()
+        saved_ad_id = request.ad_id
 
-        if not update_response.data:
-            print(f"Warning: Could not update ad_analyses record {request.ad_id}")
+        # If ad_id is provided, update existing record
+        if request.ad_id:
+            print(f"Updating existing ad_analyses record: {request.ad_id}")
+            try:
+                # First check if record exists
+                check_response = supabase_client.from_("ad_analyses").select("id").eq("id", request.ad_id).execute()
 
-        print(f"✓ Saved results to Supabase")
+                if not check_response.data or len(check_response.data) == 0:
+                    print(f"❌ Record {request.ad_id} does NOT exist in Supabase. Creating it instead...")
+                    # Create the record since it doesn't exist
+                    insert_data = {
+                        "id": request.ad_id,
+                        "title": request.ad_name or "Untitled Ad",
+                        "input": {"brand": request.brand_name or "Unknown", "desc": ""},
+                        "output": {"panelData": None},
+                        "feature_output": request.feature_vector,
+                        "agent_results": agent_results,
+                    }
+                    insert_response = supabase_client.from_("ad_analyses").insert(insert_data).execute()
+                    if insert_response.data:
+                        print(f"✅ Created new record with id: {request.ad_id}")
+                    else:
+                        print(f"❌ Failed to create record: {insert_response}")
+                else:
+                    print(f"✓ Record exists, updating...")
+                    update_response = supabase_client.from_("ad_analyses").update({
+                        "agent_results": agent_results
+                    }).eq("id", request.ad_id).execute()
+
+                    if not update_response.data:
+                        print(f"❌ Update failed: {update_response}")
+                    else:
+                        print(f"✅ Successfully updated agent_results for ad_id: {request.ad_id}")
+            except Exception as e:
+                print(f"❌ Error with Supabase: {type(e).__name__}: {e}")
+                import traceback
+                traceback.print_exc()
+        else:
+            # Create new record with agent_results
+            print(f"Creating new ad_analyses record with agent_results")
+            try:
+                insert_data = {
+                    "ad_name": request.ad_name or "Untitled Ad",
+                    "brand_name": request.brand_name or "Unknown Brand",
+                    "image_url": request.image_url,
+                    "user_id": request.user_id,
+                    "features": request.feature_vector,
+                    "agent_results": agent_results,
+                    "status": "completed"
+                }
+
+                insert_response = supabase_client.from_("ad_analyses").insert(insert_data).execute()
+
+                if insert_response.data and len(insert_response.data) > 0:
+                    saved_ad_id = insert_response.data[0].get('id')
+                    print(f"✅ Successfully created ad_analyses record with id: {saved_ad_id}")
+                else:
+                    print(f"❌ Warning: Could not create ad_analyses record")
+            except Exception as e:
+                print(f"❌ Error creating Supabase record: {e}")
+
+        print(f"✓ Processed Supabase save/update")
 
         # Step 6: Return response
         return AdAnalysisResponse(
-            ad_id=request.ad_id,
+            ad_id=saved_ad_id,
             selected_personas=selected_personas,
             analysis_results=analysis_results,
             summary=summary
