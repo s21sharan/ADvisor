@@ -9,15 +9,22 @@ AdVisor empowers marketers to understand and improve their ad creatives by combi
 ## 🏗️ Architecture
 
 ```
-User Application
+User Application / Frontend
      ↓
 Agentverse Coordinator Agent (SupaVisor)
+  • Hosted on Fetch.ai's Agentverse platform
+  • Orchestrates multi-persona analysis
+  • Aggregates insights and key metrics
      ↓
 AWS EC2 FastAPI Server (52.53.159.105:8000)
+  • Hosts 932 deployed persona agents
+  • Manages persona database (Supabase + pgvector)
+  • Handles parallel agent execution
      ↓
-932 Persona Agents (Supabase + pgvector)
-     ↓
-Fetch.ai ASI:One API (asi1-mini model)
+932 Individual Persona Agents
+  • Each powered by Fetch.ai ASI:One API (asi1-mini model)
+  • Real-time ad analysis with authentic perspectives
+  • Vector search for relevant context
 ```
 
 ## 🔧 Technology Stack
@@ -39,10 +46,11 @@ Fetch.ai ASI:One API (asi1-mini model)
 - **IVFFlat indexing** - Fast k-NN search for persona/content embeddings
 
 ### Data Collection
-- **Bright Data Dataset API** - Reddit scraping for community data
-  - Keyword-based discovery (101 keywords)
-  - URL-based comment extraction (1,508 posts)
-  - Multi-community analysis (1,577 communities)
+- **Bright Data Browser API** - Automated Reddit scraping for community data
+  - Browser automation with infinite scroll for deep post extraction
+  - Discover by Keywords endpoint (101 unique keywords)
+  - URL-based post scraping with comment extraction (1,508 posts)
+  - Multi-community analysis across 1,577 communities
 
 ### Deployment & Infrastructure
 - **AWS EC2** - Cloud hosting (Amazon Linux)
@@ -77,14 +85,30 @@ Fetch.ai ASI:One API (asi1-mini model)
 - Routes analysis to relevant persona demographics
 
 ### 5. Agent Simulation Layer ⭐ **CORE COMPONENT**
-- **932 unique personas** generated from real Reddit community data
+
+#### Agentverse Coordinator (SupaVisor)
+- **Hosted on Fetch.ai Agentverse** - Cloud-based agent orchestration platform
+- **Role**: Acts as intelligent coordinator between frontend and AWS persona agents
+- **Functions**:
+  - Receives ad analysis requests from users/applications
+  - Forwards requests to AWS EC2 API hosting 932 persona agents
+  - Aggregates responses from multiple persona agents
+  - Extracts key insights and sentiment metrics
+  - Generates simulation summary for insights dashboard
+  - Returns structured analysis with sentiment breakdown
+- **Benefits**: Decoupled architecture, scalable, discoverable on Agentverse marketplace
+
+#### 932 Persona Agents (AWS-Hosted)
+- **Deployment**: All agents hosted on AWS EC2 (52.53.159.105:8000)
+- **AI Engine**: Each agent powered by Fetch.ai ASI:One API (asi1-mini model)
+- **Data Source**: Generated from real Reddit community data (1,577 communities)
 - Each persona has:
   - Demographics (age, location, income, education, occupation)
   - Psychographics (values, interests, lifestyle)
-  - Pain points and motivations
-  - Authentic community context
-- Personas embodied by Fetch.ai ASI:One AI for realistic responses
-- Types: Performance Analyst, Creative Director, Community Member
+  - Pain points and motivations from real community discussions
+  - Authentic community context via vector search
+- Agent types: Performance Analyst, Creative Director, Community Member
+- **Response Time**: <5s for 10 personas analyzed in parallel
 
 ### 6. Creative Feedback & Variant Generator
 - Aggregates persona analyses
@@ -240,15 +264,17 @@ Find similar personas via embedding similarity
 
 | Metric | Value |
 |--------|-------|
-| Total Personas | 932 |
+| Total Personas | 932 (deployed on AWS EC2) |
 | Source Communities | 1,577 Reddit communities |
 | Scraped Posts | 10,043+ |
-| Persona Generation Cost | $2.00 (OpenAI GPT-4o-mini) |
-| Embedding Cost | $0.05 (text-embedding-3-small) |
+| Persona Data Generation | $2.00 (OpenAI GPT-4o-mini - one-time) |
+| Embedding Generation | $0.05 (OpenAI text-embedding-3-small - one-time) |
+| Agent Reasoning Engine | Fetch.ai ASI:One API (asi1-mini model) |
 | Vector Dimensions | 1,536 |
-| API Response Time | <5s for 10 personas |
+| API Response Time | <5s for 10 personas (parallel execution) |
 | Database Size | ~8 MB (personas + embeddings) |
-| Similarity Search | <100ms (IVFFlat index) |
+| Similarity Search | <100ms (pgvector IVFFlat index) |
+| Coordinator Deployment | Agentverse (cloud-hosted) |
 
 ## 🎯 Key Objectives
 
@@ -350,9 +376,10 @@ AdVisor/
 Unlike traditional simulated personas, AdVisor's 932 agents are generated from real Reddit community data, ensuring authentic perspectives.
 
 ### 2. **Distributed Agent Architecture**
-- Coordinator agent on Agentverse for orchestration
-- 932 persona agents on AWS for scalability
-- Fetch.ai ASI:One for reasoning
+- **Coordinator agent on Agentverse**: Orchestrates requests, aggregates insights, extracts key metrics
+- **932 persona agents on AWS EC2**: Deployed for scalability and parallel execution
+- **Fetch.ai ASI:One API**: Powers all agent reasoning (asi1-mini model)
+- **Decoupled design**: Frontend → Agentverse Coordinator → AWS Agents → AI reasoning
 
 ### 3. **Multi-Community Analysis**
 Each persona represents a unique community segment with:
@@ -407,10 +434,6 @@ This project is under active development. Contributions welcome!
 
 MIT License - See LICENSE file for details
 
-## 👤 Author
-
-Built by Sharan S.
-
 ## 🙏 Acknowledgments
 
 - **Fetch.ai** - ASI:One API and uAgents framework
@@ -422,8 +445,10 @@ Built by Sharan S.
 ---
 
 **Status**: Production Ready ✅
-- AWS Deployment: Live at http://52.53.159.105:8000
-- 932 Personas: Active and responding
-- Agentverse Coordinator: Ready for deployment
+- **AWS EC2 Deployment**: Live at http://52.53.159.105:8000 (932 persona agents)
+- **Agentverse Coordinator**: Deployed at `agent1qw8kzfh7gfv63ravqmclx9uzkxwa6mkqycty7nfctuzqlmcuz0wfzzy8lpl` (@supavisor)
+- **Agent Reasoning**: All 932 agents powered by Fetch.ai ASI:One API (asi1-mini model)
+- **Response Time**: <5s for parallel 10-persona ad analysis
+- **Full Stack**: Frontend → Agentverse Coordinator → AWS EC2 → 932 Agents → Fetch.ai ASI:One
 
 For questions or issues, please open a GitHub issue or contact the maintainer.
