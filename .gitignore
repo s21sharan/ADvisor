@@ -1,9 +1,15 @@
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-data/
-
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
 
 .DS_Store
 
