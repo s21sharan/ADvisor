@@ -25,6 +25,8 @@ type AgentNode = {
   };
   pain_points?: string[];
   motivations?: string[];
+  community_name?: string;  // Original subreddit name (e.g., "r/Fitness")
+  community_display_name?: string;  // Display name (e.g., "Fitness Enthusiasts")
   // Legacy fields for backwards compatibility
   gender?: string;
   ageRange?: string;
@@ -197,7 +199,8 @@ export default function AgentGraph({
     null
   );
   const [realPersonas, setRealPersonas] = useState<any[]>([]);
-  const [personasLoaded, setPersonasLoaded] = useState(false);
+  const [communityNames, setCommunityNames] = useState<string[]>([]);
+  const [communityIndexMap, setCommunityIndexMap] = useState<Map<string, number>>(new Map());
 
   // Fetch real personas from API
   useEffect(() => {
@@ -206,13 +209,25 @@ export default function AgentGraph({
         const response = await fetch("/api/personas");
         if (response.ok) {
           const data = await response.json();
-          setRealPersonas(data.personas || []);
-          setPersonasLoaded(true);
-          console.log(`✓ Loaded ${data.personas?.length || 0} real personas from database`);
+          const personas = data.personas || [];
+          setRealPersonas(personas);
+
+          // Extract unique community display names and create index mapping
+          const uniqueCommunities = data.communities || [];
+          setCommunityNames(uniqueCommunities);
+
+          // Create index map (community display name -> numeric index)
+          const indexMap = new Map<string, number>();
+          uniqueCommunities.forEach((name: string, index: number) => {
+            indexMap.set(name, index);
+          });
+          setCommunityIndexMap(indexMap);
+
+          console.log(`✓ Loaded ${personas.length} real personas from database`);
+          console.log(`✓ Loaded ${uniqueCommunities.length} communities:`, uniqueCommunities);
         }
       } catch (error) {
         console.error("Error fetching personas:", error);
-        setPersonasLoaded(true); // Still set to true to avoid blocking
       }
     };
     fetchPersonas();
@@ -246,13 +261,17 @@ export default function AgentGraph({
 
     // Map real persona data to nodes
     for (let i = 0; i < total; i += 1) {
-      generated[i].community = assignments[i];
-      // Override node ID to be sequential (0-931 becomes 1-932 for display)
       generated[i].id = i;
 
       // If we have real personas, use them
       if (realPersonas.length > 0 && i < realPersonas.length) {
         const persona = realPersonas[i];
+
+        // Assign community index based on display name
+        const communityDisplayName = persona.community_display_name;
+        const communityIndex = communityIndexMap.get(communityDisplayName) ?? assignments[i];
+        generated[i].community = communityIndex;
+
         generated[i].persona_id = persona.id;
         generated[i].name = persona.name;
         generated[i].summary = persona.summary;
@@ -260,6 +279,8 @@ export default function AgentGraph({
         generated[i].psychographics = persona.psychographics;
         generated[i].pain_points = persona.pain_points;
         generated[i].motivations = persona.motivations;
+        generated[i].community_name = persona.community_name;
+        generated[i].community_display_name = persona.community_display_name;
 
         // Map to legacy fields for display
         generated[i].gender = persona.demographics?.gender || "Unknown";
@@ -268,6 +289,8 @@ export default function AgentGraph({
         generated[i].value1 = persona.psychographics?.values?.[0] || "N/A";
         generated[i].value2 = persona.psychographics?.values?.[1] || "N/A";
         generated[i].trait = persona.psychographics?.lifestyle || "N/A";
+      } else {
+        generated[i].community = assignments[i];
       }
     }
     return generated;
@@ -277,7 +300,7 @@ export default function AgentGraph({
     numCommunities,
     membersPerCommunity,
     realPersonas,
-    personasLoaded,
+    communityIndexMap,
   ]);
 
   const links = useMemo(() => {
@@ -671,7 +694,7 @@ export default function AgentGraph({
         <div className={`flex items-center ${gapClass}`}>
           {Array.from({ length: 5 })
             .map((_, idx) => legendStart + idx)
-            .filter((i) => i < numCommunities)
+            .filter((i) => i < (communityNames.length || numCommunities))
             .map((i) => {
               const active = selectedCommunity === i;
               return (
@@ -684,7 +707,7 @@ export default function AgentGraph({
                     className={`inline-block ${dotSize} rounded-full`}
                     style={{ backgroundColor: communityColor(i, numCommunities) }}
                   />
-                  <span>{`Community ${String(i + 1).padStart(2, "0")}`}</span>
+                  <span>{communityNames[i] || `Community ${String(i + 1).padStart(2, "0")}`}</span>
                 </button>
               );
             })}
@@ -692,9 +715,9 @@ export default function AgentGraph({
         <button
           className={`${buttonBase} disabled:opacity-40`}
           onClick={() =>
-            setLegendStart((s) => Math.min(Math.max(0, numCommunities - 5), s + 5))
+            setLegendStart((s) => Math.min(Math.max(0, (communityNames.length || numCommunities) - 5), s + 5))
           }
-          disabled={legendStart >= Math.max(0, numCommunities - 5)}
+          disabled={legendStart >= Math.max(0, (communityNames.length || numCommunities) - 5)}
         >
           ›
         </button>
@@ -760,9 +783,13 @@ export default function AgentGraph({
             }}
           >
             <div>{`Agent #${n.id + 1}`}</div>
+            {n.community_display_name && (
+              <div className="mt-0.5 inline-block px-2 py-0.5 rounded-full bg-neutral-800 text-[9px] text-neutral-400 border border-neutral-700">
+                {n.community_display_name}
+              </div>
+            )}
             {a && (
               <div className="mt-1 text-[10px] text-neutral-300">
-                <div>{`Community ${String(n.community + 1).padStart(2, "0")}`}</div>
                 <div>{`Attention: ${a.attention}`}</div>
                 <div
                   className="max-w-[300px] mt-1 leading-relaxed"
@@ -840,6 +867,11 @@ export default function AgentGraph({
                 {n.name && (
                   <div className="text-sm text-neutral-400 mt-1">{n.name}</div>
                 )}
+                {n.community_display_name && (
+                  <div className="mt-2 inline-block px-3 py-1 rounded-full bg-neutral-800 text-xs text-neutral-300 border border-neutral-600">
+                    {n.community_display_name}
+                  </div>
+                )}
               </div>
               <button
                 className="text-neutral-400 hover:text-white text-2xl leading-none"
@@ -852,9 +884,6 @@ export default function AgentGraph({
             {/* Show attention info if available */}
             {a && (
               <div className="mt-3 p-3 rounded-lg bg-neutral-800/50 border border-neutral-700">
-                <div className="text-sm text-neutral-300 mb-1">
-                  <span className="text-neutral-400">Community:</span> {String(n.community + 1).padStart(2, "0")}
-                </div>
                 <div className="text-sm text-neutral-300 mb-2">
                   <span className="text-neutral-400">Attention:</span>{" "}
                   <span className={
@@ -866,7 +895,7 @@ export default function AgentGraph({
                   </span>
                 </div>
                 <div className="text-sm text-white italic">
-                  "{a.insight}"
+                  &ldquo;{a.insight}&rdquo;
                 </div>
               </div>
             )}

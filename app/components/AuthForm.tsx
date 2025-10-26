@@ -47,7 +47,7 @@ export default function AuthForm({ onSuccess }: { onSuccess?: () => void }) {
               <h3 className="text-xl font-semibold">Verify your email</h3>
             </div>
             <p className="text-neutral-300 mb-2">
-              We've sent a verification link to:
+              We&apos;ve sent a verification link to:
             </p>
             <p className="text-white font-medium mb-4 bg-neutral-900 px-3 py-2 rounded-md border border-neutral-800">
               {email}
