@@ -288,3 +288,40 @@ Integrated Fetch.ai ASI:One API to power all 932 persona agents with asi1-mini m
 - Agents access embedded messages/content via vector similarity search in Supabase
 - Removed all Elasticsearch dependencies per user request (reverted to Supabase-only for vector search)
 - API running at http://localhost:8000 with full persona agent functionality
+
+## 2025-10-26 – Compact Session
+
+### #CurrentFocus
+Deployed 932 persona agents to AWS EC2 with coordinator agent on Agentverse for distributed ad analysis
+
+### #SessionChanges
+- Created coordinator_agent.py to orchestrate multi-persona ad analysis through FastAPI endpoints
+- Built complete AWS deployment pipeline: Dockerfile, docker-compose.yml, deploy.sh, systemd service config
+- Created AWS_DEPLOYMENT.md and AGENTVERSE_DEPLOYMENT.md comprehensive deployment guides
+- Deployed FastAPI with 932 Fetch.ai persona agents to AWS EC2 instance at 52.53.159.105:8000
+- Resolved Amazon Linux compatibility issues (yum vs apt, dateparser module, nested directories, port conflicts)
+- Created coordinator_agent_agentverse.py production-ready for Agentverse deployment with mailbox system
+- Cleaned git history to remove all "Co-Authored-By: Claude" references using filter-branch
+- Attempted Agentverse registration using uAgents framework (5 test agents created with cryptographic signatures)
+- Tested end-to-end AWS API: all 6 endpoints operational, multi-persona analysis working with sentiment summaries
+
+### #NextSteps
+- Complete Agentverse coordinator deployment (leave Agent Endpoint URL blank, paste coordinator_agent_agentverse.py code)
+- Test end-to-end flow: Agentverse Coordinator → AWS FastAPI → 932 Personas → Fetch.ai ASI:One
+- Optional: Set up systemd service for auto-restart, configure HTTPS with Nginx, add API authentication
+- Begin Feature Extraction Engine (Component 2) for ad creative multimodal analysis
+
+### #BugsAndTheories
+- Agentverse API 401 "Could not validate challenge proof" ⇒ requires cryptographic signatures with private keys via uAgents framework
+- EC2 `apt: command not found` ⇒ Amazon Linux uses yum not apt, adjusted all deployment commands
+- Port 8000 conflict on EC2 ⇒ previous instance running, killed with lsof + kill -9
+- Nested AdVisor/AdVisor directory ⇒ user in wrong path, corrected to ~/AdVisor/backend
+- Missing dateparser module ⇒ not in requirements.txt, installed manually with pip
+
+### #Background
+- Architecture: Agentverse Coordinator → AWS FastAPI (52.53.159.105:8000) → 932 Personas → Fetch.ai ASI:One API
+- AWS Instance: i-00b8b674817dfd056 running Amazon Linux, public IP 52.53.159.105, private IP 172.31.1.169
+- Coordinator agent uses AdAnalysisRequest/AdAnalysisResponse models for structured messaging via uAgents protocol
+- All 932 personas accessible at public endpoints: /agents/personas, /agents/chat, /agents/analyze-ad, /agents/analyze-ad-multi
+- Agentverse deployment ready: coordinator_agent_agentverse.py with seed "advisor_coordinator_seed_v1_production", mailbox enabled
+- Git history cleaned: 36 commits rewritten, force-pushed to remove Claude co-author references

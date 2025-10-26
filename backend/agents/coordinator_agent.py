@@ -33,8 +33,8 @@ coordinator = Agent(
     }
 )
 
-# AWS FastAPI endpoint (update this with your AWS public IP/domain)
-AWS_API_URL = os.getenv("AWS_API_URL", "http://localhost:8000")
+# AWS FastAPI endpoint
+AWS_API_URL = os.getenv("AWS_API_URL", "http://52.53.159.105:8000")
 
 
 @coordinator.on_event("startup")
