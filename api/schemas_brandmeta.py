@@ -5,16 +5,6 @@ from typing import Any, Dict, List, Literal, Optional
 from pydantic import BaseModel, Field, ValidationInfo, field_validator, model_validator
 
 
-CategoryEnum = Literal[
-    "meal-prep",
-    "wearable health",
-    "insurance",
-    "fintech",
-    "gaming",
-    "beauty",
-    "other",
-]
-
 PriceEnum = Literal["budget", "mid", "premium"]
 
 
@@ -57,7 +47,7 @@ class Rationales(BaseModel):
 
 class BrandMeta(BaseModel):
     product_name: str = ""
-    category: CategoryEnum = "other"
+    category: str = "other"
     price_positioning: PriceEnum = "mid"
     claimed_value_prop: str = Field("", description="<= 2 sentences")
     target_keywords: List[str] = Field(default_factory=list)
@@ -122,6 +112,9 @@ class Signals(BaseModel):
     ocr_text_raw: str = ""
     ocr_text_norm: str = ""
     moondream_summary: str = ""
+    moondream_keywords: List[str] = Field(default_factory=list)
+    moondream_extracted_text: str = ""
+    moondream_target_audience: str = ""
     declared_company: Optional[str] = None
     detected_brand_names: List[str] = Field(default_factory=list)
     numbers_found: List[str] = Field(default_factory=list)
@@ -130,7 +123,7 @@ class Signals(BaseModel):
 
 class Priors(BaseModel):
     candidate_product_name: Optional[str] = None
-    category_prior: Optional[CategoryEnum] = None
+    category_prior: Optional[str] = None
     price_position_prior: Optional[PriceEnum] = None
     candidate_value_prop: Optional[str] = None
     candidate_keywords: List[str] = Field(default_factory=list)
