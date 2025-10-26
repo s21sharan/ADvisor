@@ -34,11 +34,6 @@ class MotionStats(BaseModel):
     audio_energy: float = Field(0.0, description="Placeholder")
 
 
-class OCRStats(BaseModel):
-    coverage_pct: float = 0.0
-    text: str = ""
-
-
 class LogosStats(BaseModel):
     present: bool = False
     area_pct: float = 0.0
@@ -48,9 +43,19 @@ class ExtractFeatures(BaseModel):
     color: ColorStats
     layout: LayoutStats
     video: Optional[MotionStats] = None
-    ocr: OCRStats = Field(default_factory=OCRStats)
     objects: List[Any] = Field(default_factory=list)
     logos: LogosStats = Field(default_factory=LogosStats)
+
+
+class MoondreamBlock(BaseModel):
+    summary: str = ""
+    caption: str = ""
+    brand: str = ""
+    product_category: str = ""
+    extracted_text: str = ""
+    keywords: List[str] = Field(default_factory=list)
+    cta: str = ""
+    target_audience: str = ""
 
 
 class ExtractResponse(BaseModel):
@@ -58,5 +63,6 @@ class ExtractResponse(BaseModel):
     media: MediaInfo
     features: ExtractFeatures
     version: str = EXTRACTOR_VERSION
+    moondream: Optional[MoondreamBlock] = None
 
 

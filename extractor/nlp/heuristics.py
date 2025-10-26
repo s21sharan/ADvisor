@@ -112,19 +112,23 @@ def map_price_tier(text: str, numbers: List[str]) -> Tuple[Optional[str], float,
 
 
 def map_category(text: str) -> Tuple[str, float, str]:
-    """Map to canonical 7 categories by token rules."""
+    """Freeform category inference with expanded domains (includes automotive)."""
     rules: List[Tuple[str, List[str]]] = [
+        ("automotive", ["car", "cars", "auto", "automotive", "vehicle", "van", "sprinter", "mercedes", "bmw", "toyota"]),
         ("meal-prep", ["meal kit", "meal", "dinner", "recipe", "grocery", "kitchen"]),
         ("wearable health", ["wearable", "ring", "watch", "tracker", "health", "sleep"]),
-        ("insurance", ["policy", "quote", "auto", "renters", "home", "coverage", "insured", "insurance"]),
+        ("insurance", ["policy", "quote", "renters", "home", "coverage", "insured", "insurance"]),
         ("fintech", ["bank", "card", "credit", "invest", "pay", "wallet", "fintech"]),
         ("gaming", ["game", "gaming", "console", "fps", "rpg", "mobile game"]),
         ("beauty", ["beauty", "skincare", "makeup", "serum", "cosmetic"]),
+        ("fitness", ["fitness", "gym", "workout", "membership"]),
+        ("travel", ["hotel", "flight", "travel", "tour"]),
+        ("technology", ["phone", "laptop", "tech", "ai", "software"]),
     ]
     for cat, tokens in rules:
         for tok in tokens:
             if tok in text:
-                return cat, 0.55, f"token '{tok}'"
+                return cat, 0.6, f"token '{tok}'"
     return "other", 0.35, "no strong tokens"
 
 

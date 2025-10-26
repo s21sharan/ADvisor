@@ -33,7 +33,7 @@ def extract_from_image(bgr: np.ndarray) -> Tuple[Dict, Dict]:
     ws_ratio = whitespace_ratio(bgr)
 
     media = _media_from_bgr(bgr)
-    ocr_stats = compute_ocr_stats(bgr)
+    # OCR removed from schema
     features = {
         "color": {
             "colorfulness": float(colorfulness),
@@ -43,7 +43,6 @@ def extract_from_image(bgr: np.ndarray) -> Tuple[Dict, Dict]:
         },
         "layout": {"aspect_ratio": float(ar), "whitespace_ratio": float(ws_ratio)},
         "video": None,
-        "ocr": {"coverage_pct": float(ocr_stats.get("coverage_pct", 0.0)), "text": str(ocr_stats.get("text", ""))},
         "objects": [],
         "logos": {"present": False, "area_pct": 0.0},
     }

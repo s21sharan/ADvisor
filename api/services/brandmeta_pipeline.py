@@ -50,6 +50,12 @@ def _collect_signals(payload: BrandMetaRequest) -> Signals:
             f2 = inner.get("features") or {}
             ocr = ((f2.get("ocr") or {}).get("text")) or ""
             ocr_text_raw = str(ocr)
+
+            # Pull optional moondream block if present at top-level of extract response
+            md_block = inner.get("moondream") or {}
+            md_keywords = md_block.get("keywords") or []
+            md_text = md_block.get("extracted_text") or ""
+            md_audience = md_block.get("target_audience") or ""
         except Exception:
             logger.debug("Failed to parse nested features")
     else:
@@ -65,6 +71,9 @@ def _collect_signals(payload: BrandMetaRequest) -> Signals:
         ocr_text_raw=ocr_text_raw,
         ocr_text_norm=ocr_norm,
         moondream_summary=md or "",
+        moondream_keywords=md_keywords if 'md_keywords' in locals() else [],
+        moondream_extracted_text=md_text if 'md_text' in locals() else "",
+        moondream_target_audience=md_audience if 'md_audience' in locals() else "",
         declared_company=declared_company,
         detected_brand_names=detected_brand_names,
         numbers_found=numbers,
@@ -73,7 +82,9 @@ def _collect_signals(payload: BrandMetaRequest) -> Signals:
 
 
 def _build_priors(signals: Signals) -> Tuple[Priors, BrandMeta]:
-    text_all_norm = normalize_text(f"{signals.moondream_summary} {signals.ocr_text_raw}")
+    text_all_norm = normalize_text(
+        f"{signals.moondream_summary} {signals.moondream_extracted_text} {signals.ocr_text_raw} {' '.join(signals.moondream_keywords)} {signals.moondream_target_audience}"
+    )
 
     # Category
     category, cat_conf, cat_why = map_category(text_all_norm)
@@ -200,12 +211,12 @@ def _ensure_constraints(meta: Dict[str, Any]) -> Dict[str, Any]:
 
 def _build_prompts(signals: Signals, priors: Priors) -> Tuple[str, str]:
     system = (
-        "Role: transform ad signals (OCR + Moondream + hints) into BrandMeta strictly matching schema.\n"
+        "Role: transform ad signals (Moondream + hints) into BrandMeta strictly matching schema.\n"
         "Rules: output only JSON; be conservative; keep value_prop <= 2 sentences; keywords 5–8 concise; "
         "mention ambiguities in warnings; use priors as hints, not mandates."
     )
     user = (
-        "Canonical categories: [\"meal-prep\",\"wearable health\",\"insurance\",\"fintech\",\"gaming\",\"beauty\",\"other\"].\n"
+        "Category is freeform (e.g., automotive, fitness, technology, insurance, fintech, gaming, beauty, travel, meal-prep, wearable health).\n"
         "Price positioning enum: [\"budget\",\"mid\",\"premium\"].\n\n"
         "Audience enums:\n"
         "- age_cohort: [\"13-17\",\"18-24\",\"25-34\",\"35-44\",\"45+\",\"unknown\"]\n"
@@ -215,7 +226,7 @@ def _build_prompts(signals: Signals, priors: Priors) -> Tuple[str, str]:
         f"Signals:\n- Declared company: {signals.declared_company}\n"
         f"- Detected brand names: {', '.join(signals.detected_brand_names)}\n"
         f"- Moondream summary: {signals.moondream_summary}\n"
-        f"- OCR text (normalized): {signals.ocr_text_norm}\n"
+        f"- Extracted text (normalized): {signals.ocr_text_norm}\n"
         f"- Numbers found (price candidates): {', '.join(signals.numbers_found)}\n\n"
         f"Priors (from heuristics; may be wrong):\n"
         f"- candidate_product_name: {priors.candidate_product_name}\n"
@@ -239,7 +250,8 @@ def _build_prompts(signals: Signals, priors: Priors) -> Tuple[str, str]:
         "   - media_preference: short videos/long posts/image carousels/mixed/unknown.\n"
         "   - values: concise tags like sustainability, frugality, performance, aesthetics.\n"
         "   - tone_preference: humorous/authoritative/minimalist/hype/unknown.\n"
-        "6) If evidence is thin or conflicting, pick the strongest single answer, and add an explanation to \"warnings\".\n"
+        "6) Category MUST NOT be 'other' or 'unknown'. Choose the closest plausible specific category using industry/keywords/hints.\n"
+        "7) If evidence is thin or conflicting, pick the strongest single answer, and add an explanation to \"warnings\".\n"
     )
     return system, user
 
@@ -351,6 +363,36 @@ def run_brandmeta_pipeline(
             final_obj.brand_meta = bm
         # Update latency
         final_obj.latency_ms = int((time.time() - start) * 1000)
+
+    # Server-side guard: avoid 'other'/'unknown' category; replace with better guess
+    try:
+        bm = final_obj.brand_meta
+        cat = (bm.category or "").strip().lower()
+        if cat in {"other", "unknown", ""}:
+            # prefer industry, else heuristic category
+            replacement = (bm.industry or "").strip() or (priors.category_prior or "").strip()
+            if not replacement:
+                # derive from keywords
+                kws = bm.target_keywords or []
+                for k in kws:
+                    k2 = k.lower()
+                    if any(x in k2 for x in ["auto", "car", "vehicle", "van"]):
+                        replacement = "automotive"; break
+                    if any(x in k2 for x in ["fitness", "gym", "workout"]):
+                        replacement = "fitness"; break
+                    if any(x in k2 for x in ["tech", "software", "ai"]):
+                        replacement = "technology"; break
+                    if any(x in k2 for x in ["insurance", "policy", "coverage"]):
+                        replacement = "insurance"; break
+                    if any(x in k2 for x in ["finance", "card", "credit", "bank"]):
+                        replacement = "fintech"; break
+            if replacement:
+                bm.category = replacement
+                if "category_overridden_from_other" not in bm.warnings:
+                    bm.warnings.append("category_overridden_from_other")
+                final_obj.brand_meta = bm
+    except Exception:
+        pass
 
     return final_obj
 
