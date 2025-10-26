@@ -247,6 +247,8 @@ export default function AgentGraph({
     // Map real persona data to nodes
     for (let i = 0; i < total; i += 1) {
       generated[i].community = assignments[i];
+      // Override node ID to be sequential (0-931 becomes 1-932 for display)
+      generated[i].id = i;
 
       // If we have real personas, use them
       if (realPersonas.length > 0 && i < realPersonas.length) {
@@ -757,7 +759,7 @@ export default function AgentGraph({
               maxWidth: "320px",
             }}
           >
-            <div>{`Agent #${n.id}`}</div>
+            <div>{`Agent #${n.id + 1}`}</div>
             {a && (
               <div className="mt-1 text-[10px] text-neutral-300">
                 <div>{`Community ${String(n.community + 1).padStart(2, "0")}`}</div>
@@ -833,21 +835,19 @@ export default function AgentGraph({
             style={{ left: leftPos, top: topPos }}
           >
             <div className="flex items-start justify-between">
-              <div className="text-2xl font-semibold">
-                {n.name || `Agent #${n.id}`}
+              <div>
+                <div className="text-2xl font-semibold">{`Agent #${n.id + 1}`}</div>
+                {n.name && (
+                  <div className="text-sm text-neutral-400 mt-1">{n.name}</div>
+                )}
               </div>
               <button
-                className="text-neutral-400 hover:text-white"
+                className="text-neutral-400 hover:text-white text-2xl leading-none"
                 onClick={() => setActiveNodeId(null)}
               >
                 ×
               </button>
             </div>
-
-            {/* Show persona ID if available */}
-            {n.persona_id && (
-              <div className="text-xs text-neutral-500 mt-1">ID: {n.persona_id}</div>
-            )}
 
             {/* Show attention info if available */}
             {a && (
@@ -881,11 +881,6 @@ export default function AgentGraph({
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
                 {n.incomeLevel}
               </div>
-              {n.trait && n.trait !== "N/A" && (
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
-                  {n.trait}
-                </div>
-              )}
               {n.value1 && n.value1 !== "N/A" && (
                 <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">
                   {n.value1}

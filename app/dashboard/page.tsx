@@ -156,31 +156,27 @@ export default function DashboardPage() {
 
         const analysisData = await analysisRes.json();
 
-        // Step 7: Map persona IDs to node IDs (0-999)
-        // We have 50 personas, map them to random nodes
-        const total = NUM_COMMUNITIES * MEMBERS_PER_COMMUNITY;
-        const nodeIds = Array.from({ length: total }, (_, i) => i);
-        for (let i = nodeIds.length - 1; i > 0; i -= 1) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [nodeIds[i], nodeIds[j]] = [nodeIds[j], nodeIds[i]];
+        // Step 7: Map persona IDs to agent numbers (1-932)
+        // First, fetch all personas to get the mapping
+        const allPersonasResponse = await fetch("/api/personas");
+        let personaIdToAgentNumber: Record<string, number> = {};
+
+        if (allPersonasResponse.ok) {
+          const allPersonasData = await allPersonasResponse.json();
+          const allPersonas = allPersonasData.personas || [];
+
+          // Create mapping: persona_id -> agent_number (0-based index)
+          allPersonas.forEach((persona: any, index: number) => {
+            personaIdToAgentNumber[persona.id] = index;
+          });
         }
-        const selectedNodes = nodeIds.slice(0, 50);
 
-        // Create mapping from persona_id -> node_id
-        const personaToNode: Record<string, number> = {};
-        const selectedPersonaIds = Object.keys(analysisData.analysis_results);
-        selectedPersonaIds.forEach((personaId, idx) => {
-          if (idx < selectedNodes.length) {
-            personaToNode[personaId] = selectedNodes[idx];
-          }
-        });
-
-        // Build analysis map for graph
+        // Build analysis map for graph using actual agent numbers
         const map: Record<number, { attention: Attn; insight: string }> = {};
         Object.entries(analysisData.analysis_results).forEach(([personaId, result]: [string, any]) => {
-          const nodeId = personaToNode[personaId];
-          if (nodeId !== undefined) {
-            map[nodeId] = {
+          const agentNumber = personaIdToAgentNumber[personaId];
+          if (agentNumber !== undefined) {
+            map[agentNumber] = {
               attention: result.attention as Attn,
               insight: result.insight
             };
@@ -188,6 +184,7 @@ export default function DashboardPage() {
         });
 
         setAnalysisMap(map);
+        console.log(`✓ Mapped ${Object.keys(map).length} personas to agent numbers for visualization`);
 
         // Step 8: Calculate panel data from real results
         const summary = analysisData.summary;
