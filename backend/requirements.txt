@@ -6,7 +6,6 @@ pydantic==2.12.3
 
 # Computer Vision & Image Processing
 opencv-python==4.10.0.84
-numpy==1.26.4
 scikit-learn==1.5.1
 Pillow==10.0.0
 pytesseract==0.3.13
@@ -29,3 +28,6 @@ dateparser==1.2.0
 
 # Reddit scraping
 beautifulsoup4==4.13.4
+
+# Numpy - install last to satisfy all dependencies
+numpy>=2.1.2
