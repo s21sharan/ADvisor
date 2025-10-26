@@ -15,6 +15,7 @@ from api.routes.extract import router as extract_router
 from api.routes.brandmeta import router as brandmeta_router
 from api.routes.analyze import router as analyze_router
 from api.routes.health_check import router as health_router
+from api.routes.moondream_diagnostic import router as moondream_router
 
 # Load environment variables from parent directory
 from pathlib import Path
@@ -46,6 +47,7 @@ app.include_router(extract_router)
 app.include_router(brandmeta_router)
 app.include_router(analyze_router)
 app.include_router(health_router)
+app.include_router(moondream_router)
 
 
 @app.get("/")
