@@ -39,22 +39,34 @@ def health() -> dict:
     return {"ok": True, "service": API_SERVICE_NAME, "version": API_VERSION}
 
 
-# Routers
+"""Register routers individually, so one failure doesn't block the others."""
+# Ensure project root is on sys.path so `extractor` package is importable when running from api/
 try:
-    # Ensure project root is on sys.path so `extractor` package is importable when running from api/
     project_root = Path(__file__).resolve().parents[1]
     if str(project_root) not in sys.path:
         sys.path.append(str(project_root))
+except Exception as exc:
+    logger.warning("Failed to adjust sys.path: %s", exc)
 
+try:
     from api.routes.extract import router as extract_router
-    from api.routes.brandmeta import router as brandmeta_router
-
     app.include_router(extract_router)
     logger.info("/extract route registered")
+except Exception as exc:  # pragma: no cover
+    logger.warning("Failed to register /extract route: %s", exc)
 
+try:
+    from api.routes.brandmeta import router as brandmeta_router
     app.include_router(brandmeta_router)
     logger.info("/brandmeta route registered")
-except Exception as exc:  # pragma: no cover - safe startup if route missing during dev
-    logger.warning("Failed to register /extract route: %s", exc)
+except Exception as exc:  # pragma: no cover
+    logger.warning("Failed to register /brandmeta route: %s", exc)
+
+try:
+    from api.routes.insights import router as insights_router
+    app.include_router(insights_router)
+    logger.info("/insights route registered")
+except Exception as exc:  # pragma: no cover
+    logger.warning("Failed to register /insights route: %s", exc)
 
 

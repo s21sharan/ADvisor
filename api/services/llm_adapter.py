@@ -119,3 +119,120 @@ def complete_structured(
     raise ValueError(f"Unknown provider: {provider}")
 
 
+def complete_structured_generic(
+    provider: str,
+    temperature: float,
+    system_prompt: str,
+    user_prompt: str,
+    tool_name: str,
+    tool_description: str,
+    json_schema: Dict[str, Any],
+    schema_hint: Optional[Dict[str, Any]] = None,
+    timeout_s: Optional[float] = None,
+    max_tokens: Optional[int] = None,
+) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+    """Generic provider-agnostic interface returning (data_dict, debug_info).
+
+    Allows callers to supply an arbitrary JSON schema for tool/function calling.
+    """
+    start = time.time()
+    provider = (provider or "local").lower()
+
+    if provider == "local":
+        data = schema_hint or {}
+        dbg = {"provider": provider, "note": "local deterministic"}
+        dbg_time = int((time.time() - start) * 1000)
+        dbg["latency_ms"] = dbg_time
+        return data, dbg
+
+    if provider == "openai":
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise RuntimeError("Missing OPENAI_API_KEY for provider 'openai'.")
+
+        try:
+            from openai import OpenAI  # type: ignore
+        except Exception as exc:  # pragma: no cover - import-time failure
+            raise RuntimeError("openai package not installed. Add it to requirements.") from exc
+
+        client = OpenAI(api_key=api_key)
+        model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+        tools = [
+            {
+                "type": "function",
+                "function": {
+                    "name": tool_name,
+                    "description": tool_description,
+                    "parameters": json_schema,
+                },
+            }
+        ]
+        resp = client.chat.completions.create(
+            model=model,
+            temperature=temperature,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            tools=tools,
+            tool_choice={"type": "function", "function": {"name": tool_name}},
+            timeout=timeout_s,
+            max_tokens=max_tokens,
+        )
+
+        data: Dict[str, Any] = {}
+        try:
+            choices = getattr(resp, "choices", None) or []
+            if choices:
+                msg = getattr(choices[0], "message", None)
+                tool_calls = getattr(msg, "tool_calls", None) if msg else None
+                if tool_calls:
+                    func = getattr(tool_calls[0], "function", None)
+                    arguments = getattr(func, "arguments", None) if func else None
+                    if arguments:
+                        try:
+                            data = json.loads(arguments)
+                        except Exception:
+                            data = {}
+                # Fallback: try to parse raw content as JSON if no tool payload parsed
+                if not data and msg is not None:
+                    try:
+                        content = getattr(msg, "content", None)
+                        if isinstance(content, str) and content.strip():
+                            # naive extraction of first JSON object
+                            start = content.find("{")
+                            end = content.rfind("}")
+                            if start != -1 and end != -1 and end > start:
+                                candidate = content[start : end + 1]
+                                data = json.loads(candidate)
+                    except Exception:
+                        data = {}
+        except Exception:
+            data = {}
+
+        dbg: Dict[str, Any] = {
+            "provider": provider,
+            "model": model,
+            "mode": "chat.tools",
+        }
+        try:
+            usage = getattr(resp, "usage", None)
+            if usage is not None:
+                dbg["usage"] = getattr(usage, "to_dict", lambda: usage)()
+        except Exception:
+            pass
+        # If still empty, fall back to schema_hint when provided to avoid hard failure
+        if not data and schema_hint:
+            data = schema_hint
+            dbg["fallback"] = "schema_hint"
+
+        dbg["latency_ms"] = int((time.time() - start) * 1000)
+        return data, dbg
+
+    if provider in {"google", "anthropic"}:
+        raise NotImplementedError(f"Provider '{provider}' not implemented in this build.")
+
+    raise ValueError(f"Unknown provider: {provider}")
+
+
