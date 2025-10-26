@@ -25,6 +25,7 @@ type Edge = {
 const DEFAULT_NODE_R = 4;
 const SELECTED_NODE_R = 7; // slightly larger highlight
 const MUTED_NODE_R = 3;
+const ANALYSIS_NODE_R = 4; // same size as default nodes
 const TRANSITION_MS = 500; // longer, smoother
 const DELAY_MS = 500; // shorter delay before selected nodes grow
 
@@ -430,13 +431,17 @@ export default function AgentGraph({
           ? 1
           : 0.25
       )
-      .attr("r", (d) =>
-        selectedCommunity === null
+      .attr("r", (d) => {
+        // If there's an analysis map, analyzed nodes get bigger size
+        if (analysisMap && analysisMap[d.id]) {
+          return ANALYSIS_NODE_R;
+        }
+        return selectedCommunity === null
           ? DEFAULT_NODE_R
           : d.community === selectedCommunity
           ? SELECTED_NODE_R
-          : MUTED_NODE_R
-      )
+          : MUTED_NODE_R;
+      })
       .attr("stroke", "#111827")
       .attr("stroke-width", 0.2);
 
@@ -494,6 +499,17 @@ export default function AgentGraph({
     // Radius: selected nodes wait, then grow; others adjust immediately
     circles.each(function (d) {
       const sel = d3.select(this);
+
+      // If node is in analysis map, make it bigger
+      if (analysisMap && analysisMap[d.id]) {
+        sel
+          .transition()
+          .duration(TRANSITION_MS)
+          .ease(d3.easeCubicOut)
+          .attr("r", ANALYSIS_NODE_R);
+        return;
+      }
+
       if (selectedCommunity === null) {
         sel
           .transition()
@@ -633,8 +649,8 @@ export default function AgentGraph({
         <g ref={gRef} />
       </svg>
 
-      {/* Hover tooltip (small, offset, follows pointer with transition) */}
-      {hoverNodeId !== null && hoverPos && (() => {
+      {/* Hover tooltip (small, offset, follows pointer with transition) - hide when node is clicked */}
+      {hoverNodeId !== null && activeNodeId === null && hoverPos && (() => {
         const n = nodes.find((x) => x.id === hoverNodeId);
         if (!n) return null;
         const a = analysisMap?.[n.id];
@@ -668,6 +684,7 @@ export default function AgentGraph({
       {activeNodeId !== null && (() => {
         const n = nodes.find((x) => x.id === activeNodeId);
         if (!n) return null;
+        const a = analysisMap?.[n.id];
         return (
           <div
             className="absolute max-w-[420px] w-[420px] rounded-2xl bg-neutral-900/90 border border-neutral-700 shadow-2xl p-5"
@@ -682,6 +699,28 @@ export default function AgentGraph({
                 ×
               </button>
             </div>
+
+            {/* Show attention info if available */}
+            {a && (
+              <div className="mt-3 p-3 rounded-lg bg-neutral-800/50 border border-neutral-700">
+                <div className="text-sm text-neutral-300 mb-1">
+                  <span className="text-neutral-400">Community:</span> {String(n.community + 1).padStart(2, "0")}
+                </div>
+                <div className="text-sm text-neutral-300 mb-2">
+                  <span className="text-neutral-400">Attention:</span>{" "}
+                  <span className={
+                    a.attention === "full" ? "text-green-400 font-medium" :
+                    a.attention === "ignore" ? "text-red-400 font-medium" :
+                    "text-gray-400 font-medium"
+                  }>
+                    {a.attention}
+                  </span>
+                </div>
+                <div className="text-sm text-white italic">
+                  "{a.insight}"
+                </div>
+              </div>
+            )}
 
             <div className="mt-4 flex flex-wrap gap-2">
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-neutral-800 border border-neutral-700 text-sm whitespace-nowrap">

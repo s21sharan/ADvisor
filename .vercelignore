@@ -1,0 +1,16 @@
+# Backend Python files (not needed for frontend deployment)
+backend/
+extractor/
+api/
+
+# Data files
+*.json
+*.csv
+
+# Environment (will be set in Vercel dashboard)
+.env.local
+
+# Python files
+*.py
+__pycache__/
+*.pyc

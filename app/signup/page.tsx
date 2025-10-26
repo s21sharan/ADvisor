@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
+import Link from "next/link";
 
-export default function AuthForm({ onSuccess }: { onSuccess?: () => void }) {
-  const [mode, setMode] = useState<"sign_in" | "sign_up">("sign_in");
+export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -15,16 +15,9 @@ export default function AuthForm({ onSuccess }: { onSuccess?: () => void }) {
     setError(null);
     setLoading(true);
     try {
-      if (mode === "sign_in") {
-        const { error: err } = await supabase.auth.signInWithPassword({ email, password });
-        if (err) throw err;
-        onSuccess?.();
-      } else {
-        const { error: err } = await supabase.auth.signUp({ email, password });
-        if (err) throw err;
-        // Show verification message after successful signup
-        setShowVerificationMessage(true);
-      }
+      const { error: err } = await supabase.auth.signUp({ email, password });
+      if (err) throw err;
+      setShowVerificationMessage(true);
     } catch (e: any) {
       setError(e?.message ?? "Authentication error");
     } finally {
@@ -55,34 +48,28 @@ export default function AuthForm({ onSuccess }: { onSuccess?: () => void }) {
             <p className="text-sm text-neutral-400 mb-6">
               Click the link in the email to verify your account and start using AdVisor.
             </p>
-            <button
-              onClick={() => setShowVerificationMessage(false)}
-              className="w-full rounded-md bg-neutral-100 text-black px-4 py-2 hover:bg-neutral-200 transition-colors"
-            >
-              Got it
-            </button>
+            <Link href="/signin">
+              <button className="w-full rounded-md bg-neutral-100 text-black px-4 py-2 hover:bg-neutral-200 transition-colors">
+                Go to Sign In
+              </button>
+            </Link>
           </div>
         </div>
       )}
 
-      {/* Auth Form */}
+      {/* Sign Up Form */}
       <div className="w-[380px] max-w-[92vw] rounded-2xl border border-neutral-800 bg-neutral-950/95 p-6 shadow-2xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded bg-neutral-200 text-neutral-900 font-bold flex items-center justify-center">A</div>
             <span className="text-sm text-neutral-400">AdVisor</span>
           </div>
-          <button
-            className="text-xs text-neutral-400 hover:text-neutral-200"
-            onClick={() => setMode((m) => (m === "sign_in" ? "sign_up" : "sign_in"))}
-          >
-            {mode === "sign_in" ? "Create account" : "Have an account? Sign in"}
-          </button>
+          <Link href="/signin" className="text-xs text-neutral-400 hover:text-neutral-200">
+            Have an account? Sign in
+          </Link>
         </div>
 
-        <h3 className="mt-4 text-xl font-semibold">
-          {mode === "sign_in" ? "Sign in" : "Create your account"}
-        </h3>
+        <h3 className="mt-4 text-xl font-semibold">Create your account</h3>
 
         <div className="mt-4 space-y-3">
           <div>
@@ -111,12 +98,10 @@ export default function AuthForm({ onSuccess }: { onSuccess?: () => void }) {
             disabled={loading || !email || !password}
             onClick={handleSubmit}
           >
-            {loading ? "Please wait..." : mode === "sign_in" ? "Sign in" : "Sign up"}
+            {loading ? "Please wait..." : "Sign up"}
           </button>
         </div>
       </div>
     </div>
   );
 }
-
-

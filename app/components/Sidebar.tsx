@@ -19,6 +19,7 @@ export default function Sidebar({
   userEmail,
   onSignOut,
   onSelectAnalysis,
+  selectedAnalysisId,
 }: {
   numCommunities?: number;
   selectedCommunity: number | null;
@@ -30,6 +31,7 @@ export default function Sidebar({
   userEmail?: string | null;
   onSignOut?: () => void;
   onSelectAnalysis?: (id: string) => void;
+  selectedAnalysisId?: string | null;
 }) {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
@@ -71,7 +73,7 @@ export default function Sidebar({
                 A
               </div>
               <div className="flex flex-col">
-                <span className="text-sm text-neutral-400">ADvisor</span>
+                <span className="text-sm text-neutral-400">AdVisor</span>
                 {userEmail && <span className="text-[11px] text-neutral-500 truncate max-w-[160px]">{userEmail}</span>}
               </div>
             </div>
@@ -169,19 +171,28 @@ export default function Sidebar({
               {previousAds.length === 0 && (
                 <div className="text-xs text-neutral-500">No analyses yet. Create one below.</div>
               )}
-              {previousAds.map((ad) => (
-                <button
-                  key={ad.id}
-                  className="w-full text-left rounded-md px-3 py-2 bg-neutral-900/60 border border-neutral-800 hover:border-neutral-700 hover:bg-neutral-900/90"
-                  onClick={() => {
-                    onSelectAnalysis?.(ad.id);
-                    onOpenAnalysis?.();
-                  }}
-                >
-                  <div className="text-sm text-neutral-200 truncate">{ad.title}</div>
-                  <div className="text-xs text-neutral-500">{ad.date}</div>
-                </button>
-              ))}
+              {previousAds.map((ad) => {
+                const isSelected = selectedAnalysisId === ad.id;
+                return (
+                  <button
+                    key={ad.id}
+                    className={`w-full text-left rounded-md px-3 py-2 border transition-all ${
+                      isSelected
+                        ? "bg-neutral-800 border-neutral-600 ring-1 ring-neutral-500"
+                        : "bg-neutral-900/60 border-neutral-800 hover:border-neutral-700 hover:bg-neutral-900/90"
+                    }`}
+                    onClick={() => {
+                      onSelectAnalysis?.(ad.id);
+                      onOpenAnalysis?.();
+                    }}
+                  >
+                    <div className={`text-sm truncate ${isSelected ? "text-white font-medium" : "text-neutral-200"}`}>
+                      {ad.title}
+                    </div>
+                    <div className="text-xs text-neutral-500">{ad.date}</div>
+                  </button>
+                );
+              })}
             </div>
 
             <div className="mt-6 pt-4 border-t border-neutral-800 text-xs text-neutral-500">Version 0.1</div>
