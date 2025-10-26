@@ -15,6 +15,10 @@ export default function Sidebar({
   onCollapsedChange,
   onRequestCreate,
   onOpenAnalysis,
+  analyses = [],
+  userEmail,
+  onSignOut,
+  onSelectAnalysis,
 }: {
   numCommunities?: number;
   selectedCommunity: number | null;
@@ -22,6 +26,10 @@ export default function Sidebar({
   onCollapsedChange?: (collapsed: boolean) => void;
   onRequestCreate?: () => void;
   onOpenAnalysis?: () => void;
+  analyses?: PreviousAd[];
+  userEmail?: string | null;
+  onSignOut?: () => void;
+  onSelectAnalysis?: (id: string) => void;
 }) {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
@@ -44,16 +52,7 @@ export default function Sidebar({
     "#FABFD2","#B07AA1","#D4A6C8","#9D7660","#D7B5A6"
   ];
 
-  const previousAds = useMemo<PreviousAd[]>(
-    () => [
-      { id: "a1", title: "Wow Artificial Societies ad", date: "Oct 2025" },
-      { id: "a2", title: "Summer Promo - Alpha", date: "Sep 2025" },
-      { id: "a3", title: "Q2 Launch Creative", date: "Jun 2025" },
-      { id: "a4", title: "Brand Awareness V2", date: "Apr 2025" },
-      { id: "a5", title: "Product Teaser", date: "Mar 2025" },
-    ],
-    []
-  );
+  const previousAds = analyses;
 
   return (
     <>
@@ -71,22 +70,36 @@ export default function Sidebar({
               <div className="w-6 h-6 rounded bg-neutral-200 text-neutral-900 font-bold flex items-center justify-center">
                 A
               </div>
-              <span className="text-sm text-neutral-400">ADvisor</span>
+              <div className="flex flex-col">
+                <span className="text-sm text-neutral-400">ADvisor</span>
+                {userEmail && <span className="text-[11px] text-neutral-500 truncate max-w-[160px]">{userEmail}</span>}
+              </div>
             </div>
-            <button
-              className="p-1.5 rounded-md hover:bg-neutral-800"
-              aria-label="Collapse sidebar"
-              onClick={() => {
-                setCollapsed(true);
-                onCollapsedChange?.(true);
-              }}
-            >
-              {/* collapse icon */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M19 12H5" />
-                <path d="M12 5L5 12l7 7" />
-              </svg>
-            </button>
+            <div className="flex items-center gap-2">
+              {onSignOut && (
+                <button
+                  className="px-2 py-1 text-xs rounded-md border border-neutral-700 text-neutral-300 hover:bg-neutral-800"
+                  onClick={onSignOut}
+                  title="Sign out"
+                >
+                  Sign out
+                </button>
+              )}
+              <button
+                className="p-1.5 rounded-md hover:bg-neutral-800"
+                aria-label="Collapse sidebar"
+                onClick={() => {
+                  setCollapsed(true);
+                  onCollapsedChange?.(true);
+                }}
+              >
+                {/* collapse icon */}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 12H5" />
+                  <path d="M12 5L5 12l7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           <div className="p-4 space-y-5 overflow-y-auto">
@@ -153,11 +166,17 @@ export default function Sidebar({
 
             {/* Previous ads list */}
             <div className="space-y-2">
+              {previousAds.length === 0 && (
+                <div className="text-xs text-neutral-500">No analyses yet. Create one below.</div>
+              )}
               {previousAds.map((ad) => (
                 <button
                   key={ad.id}
                   className="w-full text-left rounded-md px-3 py-2 bg-neutral-900/60 border border-neutral-800 hover:border-neutral-700 hover:bg-neutral-900/90"
-                  onClick={() => onOpenAnalysis?.()}
+                  onClick={() => {
+                    onSelectAnalysis?.(ad.id);
+                    onOpenAnalysis?.();
+                  }}
                 >
                   <div className="text-sm text-neutral-200 truncate">{ad.title}</div>
                   <div className="text-xs text-neutral-500">{ad.date}</div>

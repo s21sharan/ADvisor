@@ -8,12 +8,14 @@ export default function CreateAdModal({
   onOpen,
   leftOffset = 0,
   rightOffset = 0,
+  onSubmit,
 }: {
   open: boolean;
   onClose: () => void;
   onOpen?: () => void;
   leftOffset?: number;
   rightOffset?: number;
+  onSubmit?: (args: { brand: string; desc: string; fileName: string | null; file: File | null }) => void;
 }) {
   const [brand, setBrand] = useState("");
   const [desc, setDesc] = useState("");
@@ -119,6 +121,7 @@ export default function CreateAdModal({
               className="rounded-md bg-neutral-100 text-black px-4 py-2 disabled:opacity-50"
               disabled={submitDisabled}
               onClick={() => {
+                onSubmit?.({ brand, desc, fileName: file?.name ?? null, file });
                 onClose();
                 // simulate analysis completion by opening the panel via a custom event
                 window.dispatchEvent(new CustomEvent("advisor:openAnalysis"));
