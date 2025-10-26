@@ -359,3 +359,45 @@ Completed documentation for production deployment and added missing API endpoint
 - All documentation completed: main README, SupaVisor README, deployment guides, bio variations for Agentverse profile
 - /extract endpoint: handles image/video uploads for feature extraction
 - /brandmeta endpoint: generates brand metadata using LLM providers (local/openai/google/anthropic)
+
+## 2025-10-26 – ASI:One Direct Integration
+
+### #CurrentFocus
+Replaced EC2 agent architecture with direct ASI:One integration for intelligent persona-based ad analysis
+
+### #SessionChanges
+- Created smart_agent_selector.py with intelligent persona selection (age + 40% industry match algorithm)
+- **OpenAI-powered persona selection**: Uses GPT-4o-mini to semantically rank personas by industry relevance (replaces keyword matching)
+- Built /api/analyze-ad-smart endpoint that uses ASI:One agents directly instead of EC2
+- ASI:One agents analyze feature vectors (moondream + visual features) from each persona's perspective
+- Each persona gets unique system prompt with demographics, psychographics, pain points, motivations
+- Agents return structured JSON: {attention: "full"|"partial"|"ignore", insight: "reaction text"}
+- Updated frontend dashboard to pass feature_vector instead of ad_description
+- Frontend maps 50 persona analyses to random graph nodes for visualization
+- Click interaction shows persona insight + attention level with color coding (green/yellow/red)
+- Restricted clicks to only highlighted dots (nodes with analysis data)
+- Added fallback to keyword matching if OpenAI selection fails
+
+### #NextSteps
+- Test complete flow: upload ad → extract features → smart persona selection → ASI:One analysis
+- Monitor ASI:One API costs and performance with 50 concurrent persona analyses
+- Consider batch processing or async if 50 sequential calls take too long
+- Add loading states in frontend during analysis
+
+### #BugsAndTheories
+- None identified yet - awaiting first real test
+
+### #Background
+- **New Architecture**: Frontend → Next.js API → Smart Selector (OpenAI + Supabase) → ASI:One (50 personas) → Save Results
+- **Smart Selection Process**:
+  1. Filter personas by target age range (e.g., "18-24")
+  2. Use OpenAI GPT-4o-mini to semantically rank by industry relevance
+  3. Select top 40% most relevant (e.g., 20 personas for fitness ad get fitness enthusiasts)
+  4. Fill remaining 60% with age-matched diverse perspectives
+- **Persona Prompts**: Each ASI:One call embodies different persona with full context from Supabase
+- **Feature Analysis**: Moondream summary, caption, CTA, keywords + color palette, whitespace, aspect ratio
+- **Cost Efficiency**:
+  - Removed EC2 dependency
+  - OpenAI selection: ~1 call per analysis (~$0.001)
+  - ASI:One analysis: 50 personas × ~200 tokens = ~10k tokens/analysis
+- **Visualization**: 50 analyzed personas highlighted on 1000-node graph, clickable for detailed insights

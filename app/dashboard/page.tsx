@@ -59,124 +59,180 @@ export default function DashboardPage() {
     };
   }, [router]);
 
-  // Analysis event handler
+  // Analysis event handler with real API integration
   useEffect(() => {
-    const handler = () => {
-      const total = NUM_COMMUNITIES * MEMBERS_PER_COMMUNITY;
-      const ids = Array.from({ length: total }, (_, i) => i);
-      for (let i = ids.length - 1; i > 0; i -= 1) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [ids[i], ids[j]] = [ids[j], ids[i]];
-      }
-      const selected = ids.slice(0, 100);
-      const insightsPool = [
-        "Clear and compelling value proposition.",
-        "Feels generic; needs specificity.",
-        "Visuals are engaging, copy could be tighter.",
-        "Strong hook; would consider learning more.",
-        "Not relevant to my current goals.",
-      ];
-      const map: Record<number, { attention: Attn; insight: string }> = {};
-      selected.forEach((id) => {
-        const r = Math.random();
-        const attention: Attn = r < 0.25 ? "full" : r < 0.7 ? "neutral" : "ignore";
-        map[id] = {
-          attention,
-          insight: insightsPool[Math.floor(Math.random() * insightsPool.length)],
-        };
-      });
-      setAnalysisMap(map);
+    const handler = async () => {
+      const input = lastInputRef.current;
+      if (!input) return;
 
-      const full = Object.values(map).filter((x) => x.attention === "full").length;
-      const neutral = Object.values(map).filter((x) => x.attention === "neutral").length;
-      const ignore = Object.values(map).filter((x) => x.attention === "ignore").length;
-      const totalSel = selected.length || 1;
-      const pct = (n: number) => Math.round((n / totalSel) * 100);
-      const impact = Math.round(pct(full) * 0.8 + pct(neutral) * 0.3);
-      setPanelData({
-        title: "Results",
-        impactScore: Math.max(0, Math.min(100, impact)),
-        attention: { full: pct(full), partial: pct(neutral), ignore: pct(ignore) },
-        insights: [
-          "Overall reaction synthesized from top 100 relevant agents.",
-          "Use this to iterate on clarity, relevance, and hook strength.",
-        ],
-        demographicInsights: [
-          { percent: 56, text: "noted clarity or substance issues in the message." },
-          { percent: 32, text: "mentioned time constraints; content was skimmed." },
-          { percent: 18, text: "requested more relevance to current needs." },
-        ],
-      });
-      setAnalysisOpen(true);
+      try {
+        // Step 1: Extract features if file provided
+        let feature_output: any = null;
+        let brandmeta_output: any = null;
 
-      // Persist the analysis
-      const save = async () => {
-        try {
-          const input = lastInputRef.current;
-          let feature_output: any = null;
-          let brandmeta_output: any = null;
-          if (input?.file) {
-            try {
-              const form = new FormData();
-              form.append("file", input.file);
-              const extractRes = await fetch("/api/extract", { method: "POST", body: form });
-              if (extractRes.ok) feature_output = await extractRes.json();
-            } catch (_) {}
+        if (input?.file) {
+          try {
+            const form = new FormData();
+            form.append("file", input.file);
+            const extractRes = await fetch("/api/extract", { method: "POST", body: form });
+            if (extractRes.ok) feature_output = await extractRes.json();
+          } catch (_) {}
 
-            try {
-              const bmPayload = feature_output
-                ? {
-                    features: feature_output,
-                    moondream_summary: input?.desc || undefined,
-                  }
-                : {
-                    ocr_text: input?.desc || undefined,
-                    detected_brand_names: input?.brand ? [input.brand] : undefined,
-                  };
-              const bmParams = new URLSearchParams({ provider: "openai", temperature: "0.2", debug: "true" });
-              const bmRes = await fetch(`/api/brandmeta?${bmParams.toString()}`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(bmPayload),
-              });
-              if (bmRes.ok) brandmeta_output = await bmRes.json();
-            } catch (_) {}
-          }
-
-          const output = {
-            panelData: {
-              title: "Results",
-              impactScore: Math.max(0, Math.min(100, impact)),
-              attention: { full: pct(full), partial: pct(neutral), ignore: pct(ignore) },
-              insights: [
-                "Overall reaction synthesized from top 100 relevant agents.",
-                "Use this to iterate on clarity, relevance, and hook strength.",
-              ],
-              demographicInsights: [
-                { percent: 56, text: "noted clarity or substance issues in the message." },
-                { percent: 32, text: "mentioned time constraints; content was skimmed." },
-                { percent: 18, text: "requested more relevance to current needs." },
-              ],
-            },
-          };
-          const title = input?.brand || input?.fileName || (input?.desc ? input.desc.slice(0, 30) : null) || "Untitled";
-          await createUserAnalysis({
-            title,
-            input: { brand: input?.brand ?? "", desc: input?.desc ?? "", fileName: input?.fileName ?? null },
-            output,
-            feature_output,
-            brandmeta_output,
-            agent_results: {
-              selected: selected,
-              byId: map,
-            },
-          });
-          await reloadAnalyses();
-        } catch (e) {
-          // ignore persist errors
+          // Step 2: Get brand metadata
+          try {
+            const bmPayload = feature_output
+              ? {
+                  features: feature_output,
+                  moondream_summary: input?.desc || undefined,
+                }
+              : {
+                  ocr_text: input?.desc || undefined,
+                  detected_brand_names: input?.brand ? [input.brand] : undefined,
+                };
+            const bmParams = new URLSearchParams({ provider: "openai", temperature: "0.2", debug: "true" });
+            const bmRes = await fetch(`/api/brandmeta?${bmParams.toString()}`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(bmPayload),
+            });
+            if (bmRes.ok) brandmeta_output = await bmRes.json();
+          } catch (_) {}
         }
-      };
-      save();
+
+        // Step 3: Create initial analysis record in Supabase
+        const title = input?.brand || input?.fileName || (input?.desc ? input.desc.slice(0, 30) : null) || "Untitled";
+        const initialRecord = await createUserAnalysis({
+          title,
+          input: { brand: input?.brand ?? "", desc: input?.desc ?? "", fileName: input?.fileName ?? null },
+          output: { panelData: null },
+          feature_output,
+          brandmeta_output,
+          agent_results: null,
+        });
+
+        if (!initialRecord) {
+          console.error("Failed to create initial analysis record");
+          return;
+        }
+
+        const analysisId = initialRecord.id;
+
+        // Step 4: Extract targeting info from brand metadata
+        const targetAgeRange = brandmeta_output?.brand_meta?.audience?.age_cohort || "18-24";
+        const industryKeywords = brandmeta_output?.brand_meta?.target_keywords ||
+                                 [brandmeta_output?.brand_meta?.category || "fitness"];
+
+        // Step 5: Build feature vector for ASI:One analysis
+        const featureVector = feature_output || {
+          moondream: {
+            summary: input?.desc || "Ad creative for analysis",
+            caption: "",
+            cta: "",
+            keywords: [],
+            target_audience: targetAgeRange
+          },
+          features: {}
+        };
+
+        // Step 6: Call smart analysis endpoint (uses ASI:One agents)
+        const analysisPayload = {
+          ad_id: analysisId,
+          feature_vector: featureVector,
+          target_age_range: targetAgeRange,
+          industry_keywords: industryKeywords,
+          num_personas: 50
+        };
+
+        const analysisRes = await fetch("/api/analyze-ad-smart", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(analysisPayload),
+        });
+
+        if (!analysisRes.ok) {
+          console.error("Analysis API failed:", await analysisRes.text());
+          return;
+        }
+
+        const analysisData = await analysisRes.json();
+
+        // Step 7: Map persona IDs to node IDs (0-999)
+        // We have 50 personas, map them to random nodes
+        const total = NUM_COMMUNITIES * MEMBERS_PER_COMMUNITY;
+        const nodeIds = Array.from({ length: total }, (_, i) => i);
+        for (let i = nodeIds.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [nodeIds[i], nodeIds[j]] = [nodeIds[j], nodeIds[i]];
+        }
+        const selectedNodes = nodeIds.slice(0, 50);
+
+        // Create mapping from persona_id -> node_id
+        const personaToNode: Record<string, number> = {};
+        const selectedPersonaIds = Object.keys(analysisData.analysis_results);
+        selectedPersonaIds.forEach((personaId, idx) => {
+          if (idx < selectedNodes.length) {
+            personaToNode[personaId] = selectedNodes[idx];
+          }
+        });
+
+        // Build analysis map for graph
+        const map: Record<number, { attention: Attn; insight: string }> = {};
+        Object.entries(analysisData.analysis_results).forEach(([personaId, result]: [string, any]) => {
+          const nodeId = personaToNode[personaId];
+          if (nodeId !== undefined) {
+            map[nodeId] = {
+              attention: result.attention as Attn,
+              insight: result.insight
+            };
+          }
+        });
+
+        setAnalysisMap(map);
+
+        // Step 8: Calculate panel data from real results
+        const summary = analysisData.summary;
+        const impactScore = Math.round(
+          (summary.attention_percentages.full * 0.8) +
+          (summary.attention_percentages.partial * 0.3)
+        );
+
+        setPanelData({
+          title: "Results",
+          impactScore,
+          attention: {
+            full: summary.attention_percentages.full,
+            partial: summary.attention_percentages.partial,
+            ignore: summary.attention_percentages.ignore
+          },
+          insights: [
+            `Analysis from ${summary.total_personas} relevant persona agents.`,
+            "Targeting based on demographics and industry alignment.",
+          ],
+          demographicInsights: [
+            {
+              percent: summary.attention_percentages.full,
+              text: "showed full attention and engagement"
+            },
+            {
+              percent: summary.attention_percentages.partial,
+              text: "had partial interest, needs refinement"
+            },
+            {
+              percent: summary.attention_percentages.ignore,
+              text: "found it not relevant to their needs"
+            },
+          ],
+        });
+
+        setAnalysisOpen(true);
+        await reloadAnalyses();
+        setSelectedAnalysisId(analysisId);
+
+      } catch (e) {
+        console.error("Analysis error:", e);
+        // Fallback to showing analysis panel even on error
+        setAnalysisOpen(true);
+      }
     };
     window.addEventListener("advisor:openAnalysis", handler as any);
     return () => window.removeEventListener("advisor:openAnalysis", handler as any);

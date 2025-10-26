@@ -13,6 +13,8 @@ from api.persona_agents import router as agents_router
 # Import extract and brandmeta routers
 from api.routes.extract import router as extract_router
 from api.routes.brandmeta import router as brandmeta_router
+from api.routes.analyze import router as analyze_router
+from api.routes.health_check import router as health_router
 
 # Load environment variables from parent directory
 from pathlib import Path
@@ -42,6 +44,8 @@ app.include_router(agents_router)
 # Include extract and brandmeta routes
 app.include_router(extract_router)
 app.include_router(brandmeta_router)
+app.include_router(analyze_router)
+app.include_router(health_router)
 
 
 @app.get("/")
@@ -54,6 +58,7 @@ async def root():
             "/health": "GET - Health check",
             "/extract": "POST - Extract features from ad creative (image/video)",
             "/brandmeta": "POST - Get brand metadata",
+            "/api/analyze-ad-smart": "POST - Smart ad analysis with persona selection",
             "/agents/personas": "GET - List available personas",
             "/agents/chat": "POST - Chat with a persona agent",
             "/agents/analyze-ad": "POST - Get ad feedback from a persona",
